@@ -70,10 +70,15 @@
     .btn-outline:hover { background: var(--gold); color: #000; }
 
     .hamburger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      background: none; border: none; padding: 4px;
+      display: none; flex-direction: column; gap: 6px; cursor: pointer;
+      background: none; border: none; padding: 6px; z-index: 210;
     }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #fff; transition: .3s; }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--gold); border-radius: 2px;
+      transform-origin: center;
+      transition: transform .35s ease, opacity .25s ease;
+    }
 
     /* ───── HERO ───── */
     .hero {
@@ -651,6 +656,71 @@
     }
     .footer-links a:hover { color: rgba(199,165,103,.7); }
 
+    /* ───── ANIMATIONS ───── */
+
+    /* 1. Scroll reveal — базовое состояние */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 2. Hero entrance — анимация при загрузке */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    @keyframes heroFadeRight {
+      from { opacity: 0; transform: translateX(28px); }
+      to   { opacity: 1; transform: translateX(0);    }
+    }
+
+    h1.hero-title         { animation: heroFadeUp    0.85s ease both 0.15s; }
+    .hero-sub             { animation: heroFadeUp    0.85s ease both 0.38s; }
+    .hero-left .features  { animation: heroFadeUp    0.85s ease both 0.58s; }
+    .hero-left .btn-cta   { animation: heroFadeUp    0.85s ease both 0.75s; }
+    .plan-card            { animation: heroFadeRight 0.90s ease both 0.45s; }
+
+    /* 3. Кнопки — добавляем transform к существующим transition */
+    .btn-cta    { transition: background .25s ease, transform .25s ease; }
+    .btn-cta:hover { transform: scale(1.025); }
+
+    .btn-outline { transition: background .25s ease, color .25s ease, transform .25s ease; }
+    .btn-outline:hover { transform: scale(1.02); }
+
+    /* 4. Карточки этажей — добавляем глубину */
+    .floor-card {
+      transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+    }
+    .floor-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    }
+
+    /* 5. Стат-блоки — лёгкая подсветка */
+    .stat { transition: background .3s ease; }
+    .stat:hover { background: rgba(199,165,103,.05); }
+
+    /* 6. Иконки контактов */
+    .contact-icon { transition: border-color .3s ease, background .3s ease; }
+    .contact-item:hover .contact-icon {
+      border-color: rgba(199,165,103,.65);
+      background: rgba(199,165,103,.08);
+    }
+
+    /* 7. Accessibility — отключаем анимации если пользователь против */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: none; opacity: 1; transform: none; }
+      h1.hero-title, .hero-sub, .hero-left .features,
+      .hero-left .btn-cta, .plan-card {
+        animation: none; opacity: 1; transform: none;
+      }
+    }
+
     /* ───── RESPONSIVE ───── */
     @media (max-width: 1100px) {
       .hero-body { grid-template-columns: 1fr 280px; padding: 44px 36px 30px; }
@@ -659,10 +729,6 @@
     }
 
     @media (max-width: 900px) {
-      header { padding: 0 24px; }
-      nav, .btn-outline { display: none; }
-      .hamburger { display: flex; }
-
       .hero-body {
         grid-template-columns: 1fr;
         padding: 36px 24px 28px;
@@ -721,23 +787,82 @@
       .location { padding: 40px 20px; }
     }
 
-    /* ───── MOBILE NAV (checkbox trick) ───── */
+    /* ───── MOBILE MENU ───── */
     #nav-toggle { display: none; }
-    #nav-toggle:checked ~ .mobile-nav { display: flex; }
-    .mobile-nav {
-      display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 190;
-      flex-direction: column; background: var(--dark3);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 24px;
+    .mobile-nav  { display: none; }   /* hidden everywhere by default */
+
+    @keyframes menuItemIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .mobile-nav a {
-      font-family: 'Montserrat', sans-serif; font-size: 13px;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: rgba(255,255,255,.8); text-decoration: none;
-      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+
+    @media (max-width: 768px) {
+      /* Header */
+      header { padding: 0 20px; }
+      header > nav, header > .btn-outline { display: none; }
+      .hamburger { display: flex; }
+
+      /* Full-screen overlay */
+      .mobile-nav {
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        position: fixed; inset: 0; z-index: 190;
+        padding: 88px 40px 60px;
+        background: rgba(10,19,32,.97);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        /* Closed state */
+        opacity: 0; pointer-events: none; transform: translateY(-10px);
+        transition: opacity .35s ease, transform .35s ease;
+      }
+
+      #nav-toggle:checked ~ .mobile-nav {
+        opacity: 1; pointer-events: all; transform: translateY(0);
+      }
+
+      /* Nav links — крупный Cormorant */
+      .mobile-nav a {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(26px, 6.5vw, 36px);
+        font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+        color: rgba(255,255,255,.85); text-decoration: none;
+        padding: 14px 0; width: 100%; text-align: center;
+        border-bottom: 1px solid rgba(199,165,103,.12);
+        transition: color .25s ease;
+      }
+      .mobile-nav a:hover { color: var(--gold); }
+
+      /* Stagger появления ссылок */
+      #nav-toggle:checked ~ .mobile-nav a { animation: menuItemIn .45s ease both; }
+      #nav-toggle:checked ~ .mobile-nav a:nth-child(1) { animation-delay: .08s; }
+      #nav-toggle:checked ~ .mobile-nav a:nth-child(2) { animation-delay: .14s; }
+      #nav-toggle:checked ~ .mobile-nav a:nth-child(3) { animation-delay: .20s; }
+      #nav-toggle:checked ~ .mobile-nav a:nth-child(4) { animation-delay: .26s; }
+
+      /* CTA кнопка */
+      .mobile-nav .mobile-cta {
+        display: inline-flex; align-items: center; gap: 10px;
+        margin-top: 32px; padding: 14px 36px;
+        background: var(--gold); color: #000; border: none;
+        font-family: 'Montserrat', sans-serif; font-size: 11px;
+        letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+        cursor: pointer; transition: background .25s ease, transform .25s ease;
+      }
+      .mobile-nav .mobile-cta:hover { background: var(--gold-h); transform: scale(1.02); }
+      #nav-toggle:checked ~ .mobile-nav .mobile-cta {
+        animation: menuItemIn .45s ease both .32s;
+      }
+
+      /* Гамбургер → крестик */
+      #nav-toggle:checked ~ header .hamburger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      #nav-toggle:checked ~ header .hamburger span:nth-child(2) {
+        opacity: 0; transform: scaleX(0);
+      }
+      #nav-toggle:checked ~ header .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
     }
-    .mobile-nav a:hover { color: var(--gold); }
-    .mobile-nav .btn-outline { display: inline-flex; margin-top: 14px; align-self: flex-start; }
   </style>
 </head>
 <body>
@@ -749,7 +874,14 @@
   <a href="#planirovki">Планировки</a>
   <a href="#location">Локация</a>
   <a href="#kontakty">Контакты</a>
-  <button class="btn-outline" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Оставить заявку</button>
+  <button class="mobile-cta" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">
+    Оставить заявку
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+      <polyline points="12 5 19 12 12 19"/>
+    </svg>
+  </button>
 </nav>
 
 <header>
@@ -1394,6 +1526,81 @@
       btn.style.color = '';
     }, 4000);
   }
+
+  // ── Мобильное меню: закрытие по клику на ссылку или на оверлей ──
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var menu   = document.querySelector('.mobile-nav');
+    if (!toggle || !menu) return;
+
+    // Закрыть по клику на ссылку
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { toggle.checked = false; });
+    });
+
+    // Закрыть по клику на кнопку заявки
+    var cta = menu.querySelector('.mobile-cta');
+    if (cta) cta.addEventListener('click', function () { toggle.checked = false; });
+
+    // Закрыть по клику на фон (вне ссылок/кнопки)
+    menu.addEventListener('click', function (e) {
+      if (e.target === menu) toggle.checked = false;
+    });
+  })();
+
+  // ── Scroll reveal via Intersection Observer ──
+  (function () {
+
+    // Стагерируем дочерние элементы сеток
+    [
+      ['.adv-grid',     0.10],
+      ['.plans-grid',   0.15],
+      ['.gallery-grid', 0.07],
+      ['.stats',        0.10],
+    ].forEach(function (pair) {
+      var sel = pair[0], step = pair[1];
+      var container = document.querySelector(sel);
+      if (!container) return;
+      Array.from(container.children).forEach(function (child, i) {
+        child.classList.add('reveal');
+        child.style.transitionDelay = (i * step) + 's';
+      });
+    });
+
+    // Шапки секций и вспомогательные блоки
+    document.querySelectorAll(
+      '.gallery-header, .plans-summary, .plans-cta-wrap'
+    ).forEach(function (el) { el.classList.add('reveal'); });
+
+    // Секция локации — три колонки
+    var loc = document.querySelector('.location');
+    if (loc) Array.from(loc.children).forEach(function (col, i) {
+      col.classList.add('reveal');
+      col.style.transitionDelay = (i * 0.15) + 's';
+    });
+
+    // Секция контактов — две колонки
+    var cg = document.querySelector('.contacts-grid');
+    if (cg) Array.from(cg.children).forEach(function (col, i) {
+      col.classList.add('reveal');
+      col.style.transitionDelay = (i * 0.18) + 's';
+    });
+
+    // Запускаем наблюдатель
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      io.observe(el);
+    });
+
+  })();
 </script>
 
 </body>
