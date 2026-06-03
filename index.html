@@ -72,23 +72,23 @@
     /* ───── LANG SWITCH ───── */
     .lang-switch {
       display: flex; align-items: center; gap: 0;
-      margin-right: 4px;
+      border: 1.5px solid rgba(199,165,103,.5);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-right: 8px;
     }
     .lang-btn {
       font-family: 'Montserrat', sans-serif;
-      font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
       text-transform: uppercase;
-      color: rgba(255,255,255,.3);
-      background: none; border: none; cursor: pointer;
-      padding: 5px 6px; line-height: 1;
-      transition: color .2s ease;
+      color: rgba(255,255,255,.55);
+      background: transparent; border: none; cursor: pointer;
+      padding: 7px 13px; line-height: 1;
+      transition: background .2s ease, color .2s ease;
     }
-    .lang-btn:hover { color: rgba(199,165,103,.75); }
-    .lang-btn.active { color: var(--gold); }
-    .lang-sep {
-      font-size: 9px; color: rgba(255,255,255,.13);
-      line-height: 1; pointer-events: none; user-select: none;
-    }
+    .lang-btn:hover { background: rgba(199,165,103,.15); color: rgba(255,255,255,.9); }
+    .lang-btn.active { background: var(--gold); color: #0A1320; }
+    .lang-sep { display: none; }
 
     .hamburger {
       display: none; flex-direction: column; gap: 6px; cursor: pointer;
@@ -946,7 +946,7 @@
       </h1>
 
       <p class="hero-sub" data-i18n="t7">
-        Камерный проект премиальных вилл в Батуми,<br>
+        Приватный проект премиальных вилл в Батуми,<br>
         всего в <span class="gold">250 метрах</span> от моря.
       </p>
 
