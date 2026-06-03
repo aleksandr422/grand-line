@@ -6,7 +6,7 @@
   <title>Grand Line — Премиальные виллы в Гонио, Батуми</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -195,6 +195,7 @@
       padding: 26px 24px;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
+      overflow-wrap: break-word;
     }
 
     .plan-tag {
@@ -211,12 +212,13 @@
 
     .plan-row {
       display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; column-gap: 8px;
       padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.07);
       font-family: 'Montserrat', sans-serif; font-size: 13px;
     }
     .plan-row:last-of-type { border-bottom: none; }
-    .plan-row-name { color: rgba(255,255,255,.65); }
-    .plan-row-val  { color: var(--gold); font-weight: 600; }
+    .plan-row-name { color: rgba(255,255,255,.65); flex: 1; min-width: 0; overflow-wrap: break-word; }
+    .plan-row-val  { color: var(--gold); font-weight: 600; flex-shrink: 0; }
 
     .plan-note {
       margin-top: 14px; padding-top: 14px;
@@ -817,6 +819,16 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── Georgian font override ── */
+    body.lang-ka * { font-family: 'Noto Sans Georgian', sans-serif; }
+    body.lang-ka h1.hero-title, body.lang-ka h2.section-title,
+    body.lang-ka .plan-heading, body.lang-ka .stat-val, body.lang-ka .room-sq,
+    body.lang-ka .plans-summary, body.lang-ka .adv-title,
+    body.lang-ka .contacts-form-title, body.lang-ka .logo,
+    body.lang-ka .footer-logo, body.lang-ka .mobile-nav a {
+      font-family: 'Noto Serif Georgian', serif;
+    }
+
     @media (max-width: 768px) {
       /* Header */
       header { padding: 0 20px; }
@@ -1020,7 +1032,7 @@
       </div>
       <div class="plan-row">
         <span class="plan-row-name" data-i18n="t20">2 этаж · 2 спальни</span>
-        <span class="plan-row-val" data-i18n="t21">по 14 м²</span>
+        <span class="plan-row-val">14 м²</span>
       </div>
       <div class="plan-row">
         <span class="plan-row-name" data-i18n="t22">3 этаж · терраса</span>
@@ -1564,6 +1576,8 @@
   function applyLang(lang) {
     var t = translations[lang];
     if (!t) return;
+    document.documentElement.lang = lang;
+    document.body.classList.toggle('lang-ka', lang === 'ka');
 
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
