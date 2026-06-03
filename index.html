@@ -69,6 +69,27 @@
     }
     .btn-outline:hover { background: var(--gold); color: #000; }
 
+    /* ───── LANG SWITCH ───── */
+    .lang-switch {
+      display: flex; align-items: center; gap: 0;
+      margin-right: 4px;
+    }
+    .lang-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      background: none; border: none; cursor: pointer;
+      padding: 5px 6px; line-height: 1;
+      transition: color .2s ease;
+    }
+    .lang-btn:hover { color: rgba(199,165,103,.75); }
+    .lang-btn.active { color: var(--gold); }
+    .lang-sep {
+      font-size: 9px; color: rgba(255,255,255,.13);
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+
     .hamburger {
       display: none; flex-direction: column; gap: 6px; cursor: pointer;
       background: none; border: none; padding: 6px; z-index: 210;
@@ -801,6 +822,7 @@
       header { padding: 0 20px; }
       header > nav, header > .btn-outline { display: none; }
       .hamburger { display: flex; }
+      .lang-switch { margin-left: auto; margin-right: 10px; }
 
       /* Full-screen overlay */
       .mobile-nav {
@@ -893,6 +915,14 @@
     <a href="#location">Локация</a>
     <a href="#kontakty">Контакты</a>
   </nav>
+
+  <div class="lang-switch" role="group" aria-label="Язык">
+    <button class="lang-btn" data-lang="ge">ГЕ</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn active" data-lang="ru">РУ</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
 
   <button class="btn-outline" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">
     Оставить заявку
@@ -1526,6 +1556,16 @@
       btn.style.color = '';
     }, 4000);
   }
+
+  // ── Переключатель языков ──
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.lang-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+    });
+  });
 
   // ── Мобильное меню: закрытие по клику на ссылку или на оверлей ──
   (function () {
