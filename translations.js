@@ -29,7 +29,8 @@ const translations = {
     "t27": "ПОЛУЧИТЕ ПОДБОРКУ ПЛАНИРОВОК И АКТУАЛЬНЫЕ УСЛОВИЯ",
     "t28": "Ваше имя",
     "t29": "Телефон",
-    "t30": "Mы не передаем ваши данные третьим лицам"
+    "t30": "Mы не передаем ваши данные третьим лицам",
+    "t31": "Галерея"
   },
   "en": {
     "t1": "About the project",
@@ -61,7 +62,8 @@ const translations = {
     "t27": "GET A COLLECTION OF PLANS AND CURRENT CONDITIONS",
     "t28": "Your name",
     "t29": "Telephone",
-    "t30": "We do not share your data with third parties"
+    "t30": "We do not share your data with third parties",
+    "t31": "Gallery"
   },
   "ka": {
     "t1": "პროექტის შესახებ",
@@ -93,6 +95,7 @@ const translations = {
     "t27": "მიიღეთ არჩევანი განლაგება და მიმდინარე პირობები",
     "t28": "შენი სახელი",
     "t29": "ტელეფონი",
-    "t30": "ჩვენ არ ვაზიარებთ თქვენს მონაცემები მესამე პირებთან."
+    "t30": "ჩვენ არ ვაზიარებთ თქვენს მონაცემები მესამე პირებთან.",
+    "t31": "გალერეა"
   }
 };
