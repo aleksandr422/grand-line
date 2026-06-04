@@ -361,72 +361,68 @@
       border-bottom: 1px solid rgba(199,165,103,.18);
     }
 
-    /* Schematic floor plan */
-    .floor-schema {
-      border: 1.5px solid rgba(199,165,103,.48);
-      border-radius: 4px;
-      height: 168px;
-      display: flex;
+    /* Floor plan image */
+    .floor-plan-img {
+      border: 1px solid rgba(199,165,103,.35);
+      border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       flex-shrink: 0;
-      background: rgba(199,165,103,.025);
+      background: #fff;
     }
+    .floor-plan-img img { display: block; width: 100%; height: auto; }
 
-    /* Individual room block */
-    .room {
-      flex: 1;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 12px 10px;
-      border-right: 1.5px solid rgba(199,165,103,.32);
-      transition: background .25s;
+    /* Room area list */
+    .room-list { list-style: none; margin-bottom: 16px; }
+    .room-list li {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      font-family: 'Montserrat', sans-serif; font-size: 12px;
     }
-    .room:last-child { border-right: none; }
-    .room:hover { background: rgba(199,165,103,.06); }
-
-    .room-name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px; letter-spacing: 1.8px; text-transform: uppercase;
-      color: rgba(255,255,255,.45);
-      text-align: center; margin-bottom: 8px;
-    }
-    .room-sq {
+    .room-list li:last-child { border-bottom: none; }
+    .room-list-name { color: rgba(255,255,255,.55); }
+    .room-list-sq {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px; font-weight: 600; line-height: 1;
-      color: var(--gold);
+      font-size: 17px; font-weight: 600; line-height: 1;
+      color: var(--gold); flex-shrink: 0; margin-left: 8px;
     }
 
-    /* Terrace room — dashed inner border for open-air feel */
-    .room-terrace {
-      position: relative;
+    /* Terrace accent block (floor 3) */
+    .floor-terrace-accent {
       flex: 1;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .room-terrace-inner {
-      border: 1px dashed rgba(199,165,103,.35);
-      border-radius: 3px;
-      padding: 18px 32px;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      width: 80%; height: 75%;
+      border: 1px dashed rgba(199,165,103,.35);
+      border-radius: 6px;
+      padding: 36px 20px 28px;
+      margin-bottom: 16px;
+      text-align: center;
     }
-    .room-terrace-inner .room-name { margin-bottom: 8px; }
+    .terrace-sq-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,.38);
+      margin-bottom: 12px;
+    }
+    .terrace-sq-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px; font-weight: 700; line-height: 1;
+      color: var(--gold); margin-bottom: 22px;
+    }
+    .terrace-adapt-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px; line-height: 1.7;
+      color: rgba(255,255,255,.42);
+    }
 
-    /* Card footer: description text */
+    /* Card footer description */
     .floor-desc {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; line-height: 1.65;
-      color: rgba(255,255,255,.45);
-      margin-top: auto;
-    }
-
-    /* Terrace adaptability note */
-    .terrace-note {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10.5px; line-height: 1.6;
-      color: rgba(255,255,255,.4);
-      text-align: center; margin-top: 10px;
+      color: rgba(255,255,255,.38);
+      margin-top: auto; padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.05);
     }
 
     /* Summary line */
@@ -436,12 +432,19 @@
       font-size: 18px; font-weight: 600;
       color: var(--gold);
       letter-spacing: 1px;
-      margin-bottom: 32px;
+      margin-bottom: 10px;
     }
 
     .plans-summary span {
       color: rgba(199,165,103,.5);
       margin: 0 12px;
+    }
+
+    .plans-corner-note {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px; color: rgba(255,255,255,.38);
+      margin-bottom: 36px;
     }
 
     .plans-cta-wrap { text-align: center; }
@@ -832,7 +835,9 @@
     body.lang-ka .footer-logo, body.lang-ka .mobile-nav a {
       font-family: 'Noto Serif Georgian', serif;
     }
-    body.lang-ka .stat-val { font-family: 'Cormorant Garamond', serif; }
+    body.lang-ka .stat-val,
+    body.lang-ka .room-list-sq,
+    body.lang-ka .terrace-sq-val { font-family: 'Cormorant Garamond', serif; }
 
     @media (max-width: 768px) {
       /* Header */
@@ -1086,69 +1091,53 @@
     <!-- ── ЭТАЖ 1 ── -->
     <div class="floor-card">
       <div class="floor-num">1 Этаж</div>
-
-      <div class="floor-schema">
-        <!-- Гостиная занимает 2/3 ширины, кухня — 1/3 -->
-        <div class="room" style="flex:2">
-          <span class="room-name">Гостиная</span>
-          <span class="room-sq">26 м²</span>
-        </div>
-        <div class="room" style="flex:1">
-          <span class="room-name">Кухня</span>
-          <span class="room-sq">8 м²</span>
-        </div>
+      <div class="floor-plan-img">
+        <img src="plan1.png" alt="План 1 этажа">
       </div>
-
-      <div class="floor-desc">
-        Просторная гостиная с выходом во двор · Кухня-столовая · Санузел
-      </div>
+      <ul class="room-list">
+        <li><span class="room-list-name">Гостиная</span><span class="room-list-sq">26 м²</span></li>
+        <li><span class="room-list-name">Кухня</span><span class="room-list-sq">8 м²</span></li>
+        <li><span class="room-list-name">Ванная</span><span class="room-list-sq">4,2 м²</span></li>
+      </ul>
+      <div class="floor-desc">Просторная гостиная с выходом во двор · Кухня-столовая · Санузел</div>
     </div>
 
     <!-- ── ЭТАЖ 2 ── -->
     <div class="floor-card">
       <div class="floor-num">2 Этаж</div>
-
-      <div class="floor-schema">
-        <div class="room">
-          <span class="room-name">Спальня</span>
-          <span class="room-sq">14 м²</span>
-        </div>
-        <div class="room">
-          <span class="room-name">Спальня</span>
-          <span class="room-sq">14 м²</span>
-        </div>
+      <div class="floor-plan-img">
+        <img src="plan2.png" alt="План 2 этажа">
       </div>
-
-      <div class="floor-desc">
-        2 спальни с панорамными окнами · Гардеробная · Ванная комната
-      </div>
+      <ul class="room-list">
+        <li><span class="room-list-name">Спальня 1</span><span class="room-list-sq">14 м²</span></li>
+        <li><span class="room-list-name">Спальня 2</span><span class="room-list-sq">14 м²</span></li>
+        <li><span class="room-list-name">Ванная 1</span><span class="room-list-sq">3,5 м²</span></li>
+        <li><span class="room-list-name">Ванная 2</span><span class="room-list-sq">3,5 м²</span></li>
+      </ul>
+      <div class="floor-desc">2 спальни с панорамными окнами · Гардеробная · Ванная комната</div>
     </div>
 
     <!-- ── ЭТАЖ 3 ── -->
     <div class="floor-card">
       <div class="floor-num">3 Этаж</div>
-
-      <div class="floor-schema">
-        <div class="room-terrace">
-          <div class="room-terrace-inner">
-            <span class="room-name">Терраса</span>
-            <span class="room-sq" style="font-size:28px">48 м²</span>
-          </div>
-        </div>
+      <div class="floor-terrace-accent">
+        <div class="terrace-sq-label">Крытая терраса</div>
+        <div class="terrace-sq-val">48 м²</div>
+        <p class="terrace-adapt-text">Терраса может быть адаптирована под ваши нужды: мангал-зону, бассейн, летнюю кухню, зелёный сад.</p>
       </div>
-
-      <div class="floor-desc">
-        Адаптируется под мангал-зону, бассейн, летнюю кухню или зелёный сад
-      </div>
+      <div class="floor-desc">Панорамный вид · Открытое небо · Полная свобода планировки</div>
     </div>
 
   </div><!-- /plans-grid -->
 
   <div class="plans-summary">
-    Общая площадь виллы — 164 м²
+    Общая площадь — 164 м²
     <span>·</span>
     Личный двор — 25 м²
+    <span>·</span>
+    +35 м² в крайних виллах
   </div>
+  <p class="plans-corner-note">Крайние виллы имеют расширенный двор — отличный выбор для семей с детьми.</p>
 
   <div class="plans-cta-wrap">
     <button class="btn-cta" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">
