@@ -636,7 +636,7 @@
     /* Шестое — широкое нижнее */
     .gi-6 { grid-column: 1 / span 3; grid-row: 3; }
 
-    /* ───── ADVANTAGES ───── */
+    /* ───── ADVANTAGES (bento grid) ───── */
     .advantages {
       background: var(--dark);
       padding: 80px 56px;
@@ -647,14 +647,14 @@
 
     .adv-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
     .adv-card {
       border: 1px solid rgba(199,165,103,.22);
-      border-radius: 10px;
-      padding: 28px 24px;
+      border-radius: 12px;
+      padding: 26px 22px;
       background: #0d1b2a;
       transition: border-color .3s ease, background .3s ease, transform .3s ease;
     }
@@ -664,13 +664,35 @@
       transform: translateY(-4px);
     }
 
+    /* Hero cards — top row, each spans 2 columns */
+    .adv-card-hero {
+      grid-column: span 2;
+      padding: 36px 32px;
+    }
+
+    /* Numbers */
+    .adv-big-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 3.6vw, 48px);
+      font-weight: 700; line-height: 1;
+      color: var(--gold); letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .adv-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 700; line-height: 1;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    /* Icons */
     .adv-icon {
       width: 46px; height: 46px;
       border: 1.5px solid rgba(199,165,103,.32);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       color: var(--gold);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       flex-shrink: 0;
       transition: border-color .3s, background .3s;
     }
@@ -680,12 +702,19 @@
     }
     .adv-icon svg { width: 18px; height: 18px; }
 
+    .adv-card-hero .adv-icon {
+      width: 54px; height: 54px;
+      margin-bottom: 24px;
+    }
+    .adv-card-hero .adv-icon svg { width: 22px; height: 22px; }
+
     .adv-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px; font-weight: 600; line-height: 1.2;
+      font-size: 19px; font-weight: 600; line-height: 1.25;
       color: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
+    .adv-card-hero .adv-title { font-size: 22px; }
 
     .adv-desc {
       font-family: 'Montserrat', sans-serif;
@@ -931,7 +960,8 @@
       .plans-section { padding: 60px 24px; }
       .plans-grid { grid-template-columns: 1fr; gap: 16px; }
       .advantages { padding: 60px 24px; }
-      .adv-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .adv-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .adv-card-hero { grid-column: span 1; padding: 28px 22px; }
       .contacts-section { padding: 60px 24px; }
       .contacts-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 20px 24px; }
@@ -963,6 +993,7 @@
       .plans-summary { font-size: 15px; }
       .advantages { padding: 40px 20px; }
       .adv-grid { grid-template-columns: 1fr; }
+      .adv-card-hero { grid-column: span 1; }
       .contacts-section { padding: 40px 20px; }
       footer { flex-direction: column; text-align: center; gap: 8px; padding: 20px; }
       .footer-links { justify-content: center; }
@@ -1407,27 +1438,27 @@
 
   <div class="gallery-header">
     <div class="section-tag">Почему Grand Line</div>
-    <h2 class="section-title">Преимущества,<br>которые вы оцените</h2>
+    <h2 class="section-title">6 причин выбрать<br>Grand Line</h2>
   </div>
 
   <div class="adv-grid">
 
-    <!-- 1 -->
-    <div class="adv-card">
+    <!-- HERO 1 — 250 м -->
+    <div class="adv-card adv-card-hero">
       <div class="adv-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
              stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 8c2.8-2.6 5.3-.3 8 0s5.2-2.6 8 0"/>
-          <path d="M3 14c2.8-2.6 5.3-.3 8 0s5.2-2.6 8 0"/>
-          <path d="M3 20c2.8-2.6 5.3-.3 8 0s5.2-2.6 8 0"/>
+          <path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+          <path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
         </svg>
       </div>
-      <div class="adv-title">250 метров до моря</div>
-      <div class="adv-desc">Тихий район Гонио, набережная и пляж в нескольких минутах ходьбы.</div>
+      <div class="adv-big-num">250 м</div>
+      <div class="adv-title">До моря и набережной</div>
+      <div class="adv-desc">Тихий район Гонио — пляж и набережная в нескольких минутах пешком.</div>
     </div>
 
-    <!-- 2 -->
-    <div class="adv-card">
+    <!-- HERO 2 — $5 000 -->
+    <div class="adv-card adv-card-hero">
       <div class="adv-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
              stroke-linecap="round" stroke-linejoin="round">
@@ -1437,11 +1468,40 @@
           <line x1="13" y1="15" x2="15" y2="15"/>
         </svg>
       </div>
-      <div class="adv-title">Рассрочка без переплат</div>
-      <div class="adv-desc">Первый взнос от 5 000 $, оплата до конца 2027 года без процентов.</div>
+      <div class="adv-big-num">$5 000</div>
+      <div class="adv-title">Первый взнос</div>
+      <div class="adv-desc">Рассрочка без переплат до конца 2027 года, 0% процентов.</div>
     </div>
 
-    <!-- 3 -->
+    <!-- SMALL 1 — 48 м² -->
+    <div class="adv-card">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <path d="M9 22V12h6v10"/>
+        </svg>
+      </div>
+      <div class="adv-num">48 м²</div>
+      <div class="adv-title">Своя терраса</div>
+      <div class="adv-desc">Мангал, бассейн или зелёный сад — под ваш стиль жизни.</div>
+    </div>
+
+    <!-- SMALL 2 — 24/7 -->
+    <div class="adv-card">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+      </div>
+      <div class="adv-num">24/7</div>
+      <div class="adv-title">Охрана и видеонаблюдение</div>
+      <div class="adv-desc">Закрытая территория и частные машиноместа.</div>
+    </div>
+
+    <!-- SMALL 3 — Качество -->
     <div class="adv-card">
       <div class="adv-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
@@ -1455,34 +1515,7 @@
       <div class="adv-desc">Современные материалы, панорамные окна, дизайнерская отделка.</div>
     </div>
 
-    <!-- 4 -->
-    <div class="adv-card">
-      <div class="adv-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <rect x="9" y="14" width="6" height="8"/>
-          <line x1="3" y1="14" x2="21" y2="14"/>
-        </svg>
-      </div>
-      <div class="adv-title">Своя терраса 48 м²</div>
-      <div class="adv-desc">Пространство под мангал-зону, бассейн, летнюю кухню или зелёный сад.</div>
-    </div>
-
-    <!-- 5 -->
-    <div class="adv-card">
-      <div class="adv-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <polyline points="9 12 11 14 15 10"/>
-        </svg>
-      </div>
-      <div class="adv-title">Парковка и видеонаблюдение</div>
-      <div class="adv-desc">Закрытая территория, частные машиноместа, безопасность 24/7.</div>
-    </div>
-
-    <!-- 6 -->
+    <!-- SMALL 4 — Камерный -->
     <div class="adv-card">
       <div class="adv-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
@@ -1494,7 +1527,7 @@
         </svg>
       </div>
       <div class="adv-title">Камерный проект</div>
-      <div class="adv-desc">Ограниченное число вилл — полная приватность и спокойствие для жизни.</div>
+      <div class="adv-desc">Ограниченное число вилл — полная приватность и спокойствие.</div>
     </div>
 
   </div>
