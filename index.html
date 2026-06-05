@@ -751,8 +751,15 @@
 
     .contacts-form-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 600; line-height: 1.35;
-      color: #fff; margin-bottom: 24px;
+      font-size: clamp(28px, 2.6vw, 34px); font-weight: 600; line-height: 1.4;
+      color: #fff; margin-bottom: 10px;
+    }
+
+    .contacts-form-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(14px, 1.2vw, 17px); font-weight: 400; line-height: 1.4;
+      color: rgba(255,255,255,.52);
+      margin-bottom: 28px;
     }
 
     .contacts-section .field { margin-bottom: 12px; }
@@ -762,10 +769,11 @@
       background: rgba(255,255,255,.05);
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 8px;
-      color: #fff; font-size: 14px;
+      color: #fff; font-size: 16px;
     }
     .contacts-section .field input::placeholder {
       color: rgba(255,255,255,.32);
+      font-size: 16px;
     }
     .contacts-section .field input:focus {
       border-color: var(--gold);
@@ -773,11 +781,15 @@
       box-shadow: 0 0 0 2.5px rgba(199,165,103,.15);
     }
     .contacts-section .btn-submit {
+      font-size: 13px; letter-spacing: 2.5px;
       transition: background .3s, transform .3s;
     }
     .contacts-section .btn-submit:hover {
       background: #b49145;
       transform: scale(1.02);
+    }
+    .contacts-section .privacy {
+      font-size: 13px; color: rgba(255,255,255,.32);
     }
 
     .contacts-form-col {
@@ -1681,9 +1693,8 @@
     <!-- ── ПРАВАЯ КОЛОНКА: форма заявки ── -->
     <div class="contacts-form-col">
       <div class="form-accent-line"></div>
-      <div class="contacts-form-title">
-        Оставьте заявку —<br>перезвоним за 15 минут
-      </div>
+      <div class="contacts-form-title">Узнайте цены и доступные лоты</div>
+      <div class="contacts-form-subtitle">Оставьте контакты — пришлём актуальный каталог</div>
 
       <form onsubmit="handleSubmit(event)">
         <div class="field">
@@ -1698,7 +1709,7 @@
         <button type="submit" class="btn-submit">Отправить</button>
       </form>
 
-      <div class="privacy" style="margin-top:4px; color:rgba(255,255,255,.32)">
+      <div class="privacy" style="margin-top:4px">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
