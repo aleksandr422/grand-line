@@ -30,7 +30,8 @@ const translations = {
     "t28": "Ваше имя",
     "t29": "Телефон",
     "t30": "Mы не передаем ваши данные третьим лицам",
-    "t31": "Галерея"
+    "t31": "Галерея",
+    "t32": "Email"
   },
   "en": {
     "t1": "About the project",
@@ -63,7 +64,8 @@ const translations = {
     "t28": "Your name",
     "t29": "Telephone",
     "t30": "We do not share your data with third parties",
-    "t31": "Gallery"
+    "t31": "Gallery",
+    "t32": "Email"
   },
   "ka": {
     "t1": "პროექტის შესახებ",
@@ -96,6 +98,7 @@ const translations = {
     "t28": "შენი სახელი",
     "t29": "ტელეფონი",
     "t30": "ჩვენ არ ვაზიარებთ თქვენს მონაცემები მესამე პირებთან.",
-    "t31": "გალერეა"
+    "t31": "გალერეა",
+    "t32": "Email"
   }
 };
