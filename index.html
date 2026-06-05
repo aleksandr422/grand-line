@@ -20,6 +20,8 @@
       --stone:     #6B6B6B;
       --border:    rgba(199,165,103,.25);
       --muted:     rgba(255,255,255,.55);
+      --section-pad:   48px;   /* vertical section padding — 2× = ~96px gap between sections */
+      --section-h-pad: 56px;   /* horizontal section padding */
     }
 
     html { scroll-behavior: smooth; }
@@ -264,7 +266,7 @@
     .location {
       background: var(--light-bg); color: #1a1a1a;
       display: grid; grid-template-columns: 1fr 1.15fr 1fr;
-      gap: 52px; padding: 76px 56px;
+      gap: 52px; padding: var(--section-pad) var(--section-h-pad);
     }
 
     .section-tag {
@@ -348,7 +350,7 @@
     /* ───── PLANS ───── */
     .plans-section {
       background: var(--dark);
-      padding: 80px 56px;
+      padding: var(--section-pad) var(--section-h-pad);
       border-top: 1px solid rgba(255,255,255,.06);
     }
 
@@ -565,7 +567,7 @@
     /* ───── GALLERY ───── */
     .gallery {
       background: var(--dark);
-      padding: 80px 56px;
+      padding: var(--section-pad) var(--section-h-pad);
       border-top: 1px solid rgba(255,255,255,.06);
     }
 
@@ -639,7 +641,7 @@
     /* ───── ADVANTAGES (bento grid) ───── */
     .advantages {
       background: var(--dark);
-      padding: 80px 56px;
+      padding: var(--section-pad) var(--section-h-pad);
       border-top: 1px solid rgba(255,255,255,.06);
     }
 
@@ -725,7 +727,7 @@
     /* ───── CONTACTS ───── */
     .contacts-section {
       background: var(--dark);
-      padding: 80px 56px;
+      padding: var(--section-pad) var(--section-h-pad);
       border-top: 1px solid rgba(255,255,255,.06);
     }
 
@@ -958,15 +960,12 @@
       .stats { grid-template-columns: repeat(2,1fr); }
       .stat { border-bottom: 1px solid rgba(255,255,255,.07); }
 
-      .plans-section { padding: 60px 24px; }
+      :root { --section-h-pad: 24px; }
       .plans-grid { grid-template-columns: 1fr; gap: 16px; }
-      .advantages { padding: 60px 24px; }
       .adv-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .adv-card-hero { grid-column: span 1; padding: 28px 22px; }
-      .contacts-section { padding: 60px 24px; }
       .contacts-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 20px 24px; }
-      .gallery { padding: 60px 24px; }
       .gallery-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 200px 200px 160px 160px;
@@ -980,25 +979,22 @@
 
       .location {
         grid-template-columns: 1fr;
-        gap: 32px; padding: 48px 24px;
+        gap: 32px;
       }
       .location > :last-child { max-width: 100%; }
     }
 
     @media (max-width: 600px) {
+      :root { --section-pad: 28px; --section-h-pad: 20px; }
       h1.hero-title { font-size: 30px; }
       .features { grid-template-columns: 1fr; }
       .stat { padding: 18px 20px; }
       .stat-val { font-size: 22px; }
-      .plans-section { padding: 40px 20px; }
       .plans-summary { font-size: 15px; }
-      .advantages { padding: 40px 20px; }
       .adv-grid { grid-template-columns: 1fr; }
       .adv-card-hero { grid-column: span 1; }
-      .contacts-section { padding: 40px 20px; }
       footer { flex-direction: column; text-align: center; gap: 8px; padding: 20px; }
       .footer-links { justify-content: center; }
-      .gallery { padding: 40px 20px; }
       .gallery-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, 200px);
