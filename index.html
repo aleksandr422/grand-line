@@ -1779,17 +1779,22 @@
       <div class="contacts-form-title">Узнайте цены и доступные лоты</div>
       <div class="contacts-form-subtitle">Оставьте контакты — пришлём актуальный каталог</div>
 
-      <form onsubmit="handleSubmit(event)">
+      <form id="contact-form" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="access_key" value="25e67d9f-6d50-4ba1-9f00-1747f4b33b24">
+        <input type="hidden" name="subject" value="Новая заявка с сайта Grand Line">
+        <input type="hidden" name="to" value="1837444@gmail.com">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field">
-          <input type="text" placeholder="Ваше имя" data-i18n-placeholder="t28" required>
+          <input type="text" name="name" placeholder="Ваше имя" data-i18n-placeholder="t28" required>
         </div>
         <div class="field">
-          <input type="email" placeholder="Email" data-i18n-placeholder="t32">
+          <input type="email" name="email" placeholder="Email" data-i18n-placeholder="t32">
         </div>
         <div class="field">
-          <input type="tel" placeholder="Телефон" data-i18n-placeholder="t29" required>
+          <input type="tel" name="phone" placeholder="Телефон" data-i18n-placeholder="t29" required>
         </div>
         <button type="submit" class="btn-submit">Отправить</button>
+        <div id="form-msg" style="display:none; margin-top:10px; font-family:'Montserrat',sans-serif; font-size:13px; line-height:1.5;"></div>
       </form>
 
       <div class="privacy" style="margin-top:4px">
@@ -1839,16 +1844,50 @@
 
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = 'Заявка отправлена ✓';
-    btn.style.background = '#4a7c4e';
-    btn.style.color = '#fff';
-    e.target.reset();
-    setTimeout(() => {
-      btn.textContent = 'Оставить заявку';
-      btn.style.background = '';
-      btn.style.color = '';
-    }, 4000);
+    var form = e.target;
+    var btn  = form.querySelector('.btn-submit');
+    var msg  = document.getElementById('form-msg');
+
+    var data = {
+      access_key: form.access_key.value,
+      subject:    form.subject.value,
+      to:         form.to.value,
+      botcheck:   form.botcheck.checked,
+      name:       form.name.value,
+      email:      form.email.value,
+      phone:      form.phone.value
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Отправка...';
+    msg.style.display = 'none';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.success) {
+        msg.style.color = 'rgba(199,165,103,.9)';
+        msg.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+        form.reset();
+      } else {
+        msg.style.color = 'rgba(255,120,120,.85)';
+        msg.textContent = 'Что-то пошло не так, попробуйте позже или позвоните нам.';
+      }
+      msg.style.display = 'block';
+    })
+    .catch(function() {
+      msg.style.color = 'rgba(255,120,120,.85)';
+      msg.textContent = 'Что-то пошло не так, попробуйте позже или позвоните нам.';
+      msg.style.display = 'block';
+    })
+    .finally(function() {
+      btn.disabled = false;
+      btn.textContent = 'Отправить';
+    });
   }
 
   // ── Переключатель языков с i18n ──
