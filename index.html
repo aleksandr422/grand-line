@@ -1967,27 +1967,50 @@
 
   // ── Lightbox для чертежей ──
   (function () {
-    var lb       = document.getElementById('lightbox');
-    var lbImg    = lb.querySelector('.lightbox-img');
-    var lbClose  = lb.querySelector('.lightbox-close');
-    var lbBg     = lb.querySelector('.lightbox-backdrop');
+    var lb      = document.getElementById('lightbox');
+    var lbImg   = lb.querySelector('.lightbox-img');
+    var lbClose = lb.querySelector('.lightbox-close');
+    var lbBg    = lb.querySelector('.lightbox-backdrop');
+    var loading = false;   // guard against rapid clicks
 
     window.openLightbox = function (src) {
-      lbImg.src = src;
-      lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      if (!src || loading) return;
+
+      // If already open with the same image — do nothing
+      if (lb.classList.contains('open') && lbImg.src.endsWith(src)) return;
+
+      loading = true;
+      lbImg.style.opacity = '0';   // hide until loaded — no broken icon
+
+      var tempImg = new Image();
+      tempImg.onload = function () {
+        lbImg.src = src;
+        lbImg.style.opacity = '1';
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        loading = false;
+      };
+      tempImg.onerror = function () {
+        loading = false;   // silently cancel — don't open on broken src
+      };
+      tempImg.src = src;
     };
 
     function closeLightbox() {
+      if (!lb.classList.contains('open')) return;
       lb.classList.remove('open');
       document.body.style.overflow = '';
-      setTimeout(function () { lbImg.src = ''; }, 300);
+      // Clear src after transition so no broken icon flashes on next open
+      setTimeout(function () {
+        lbImg.src = '';
+        lbImg.style.opacity = '0';
+      }, 320);
     }
 
     lbClose.addEventListener('click', closeLightbox);
     lbBg.addEventListener('click', closeLightbox);
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
+      if (e.key === 'Escape') closeLightbox();
     });
   })();
 </script>
