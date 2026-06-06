@@ -22,12 +22,14 @@
       --muted:     rgba(255,255,255,.55);
       --section-pad:   48px;   /* vertical section padding — 2× = ~96px gap between sections */
       --section-h-pad: 56px;   /* horizontal section padding */
+      --header-height: 68px;   /* fixed header height */
+      --scroll-offset: 100px;  /* scroll-margin-top: header + 32px breathing room */
     }
 
     html { scroll-behavior: smooth; }
 
     #o-proekte, #planirovki, #gallery, #location, #kontakty {
-      scroll-margin-top: 120px;
+      scroll-margin-top: var(--scroll-offset);
     }
 
     body {
@@ -1046,6 +1048,7 @@
         grid-column: 1; grid-row: auto;
       }
       .location { padding: 40px 20px; }
+      .contacts-form-title { font-size: 24px; line-height: 1.18; }
     }
 
     /* ───── MOBILE MENU ───── */
@@ -1071,6 +1074,7 @@
     body.lang-ka .terrace-sq-val { font-family: 'Cormorant Garamond', serif; }
 
     @media (max-width: 768px) {
+      :root { --scroll-offset: 80px; }
       /* Header */
       header { padding: 0 20px; }
       header > nav, header > .btn-outline { display: none; }
@@ -1153,7 +1157,7 @@
   <a href="#gallery" data-i18n="t31">Галерея</a>
   <a href="#location" data-i18n="t3">Локация</a>
   <a href="#kontakty" data-i18n="t4">Контакты</a>
-  <button class="mobile-cta" onclick="document.getElementById('kontakty').scrollIntoView({behavior:'smooth'})">
+  <button class="mobile-cta" onclick="scrollToSection('kontakty')">
     <span data-i18n="t5">Оставить заявку</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1182,7 +1186,7 @@
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
 
-  <button class="btn-outline" onclick="document.getElementById('kontakty').scrollIntoView({behavior:'smooth'})">
+  <button class="btn-outline" onclick="scrollToSection('kontakty')">
     <span data-i18n="t5">Оставить заявку</span>
   </button>
 
@@ -1254,7 +1258,7 @@
 
       </div>
 
-      <button class="btn-cta" onclick="document.getElementById('kontakty').scrollIntoView({behavior:'smooth'})">
+      <button class="btn-cta" onclick="scrollToSection('kontakty')">
         <span data-i18n="t5">Оставить заявку</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"/>
@@ -1429,7 +1433,7 @@
   <p class="plans-corner-note">Крайние виллы имеют расширенный двор — отличный выбор для семей с детьми.</p>
 
   <div class="plans-cta-wrap">
-    <button class="btn-cta" onclick="document.getElementById('kontakty').scrollIntoView({behavior:'smooth'})">
+    <button class="btn-cta" onclick="scrollToSection('kontakty')">
       Получить все планировки
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
            stroke-linecap="round" stroke-linejoin="round">
@@ -1841,6 +1845,14 @@
 
 <script src="translations.js"></script>
 <script>
+  function scrollToSection(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var headerH = (document.querySelector('header') || {}).offsetHeight || 68;
+    var extra = window.innerWidth <= 768 ? 12 : 32;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - headerH - extra, behavior: 'smooth' });
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
