@@ -445,12 +445,12 @@
     }
     .lightbox-box {
       position: relative; z-index: 1;
-      width: min(82vw, 900px);
-      max-height: 85vh;
-      background: #fff;
-      border: 1.5px solid rgba(199,165,103,.55);
-      border-radius: 10px;
-      overflow: hidden;
+      max-width: min(92vw, 1100px);
+      max-height: 90vh;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      overflow: visible;
       display: flex; align-items: center; justify-content: center;
       transform: scale(.92);
       transition: transform .3s ease;
@@ -458,8 +458,11 @@
     .lightbox.open .lightbox-box { transform: scale(1); }
     .lightbox-img {
       display: block;
-      max-width: 100%; max-height: 80vh;
+      max-width: 100%; max-height: 90vh;
       width: auto; height: auto;
+      border-radius: 6px;
+      border: none;
+      object-fit: contain;
     }
     .lightbox-close {
       position: absolute; top: 12px; right: 12px; z-index: 2;
@@ -617,71 +620,53 @@
     }
 
     .gallery-header { margin-bottom: 44px; }
-
-    /* Заголовок на тёмном фоне — белый */
     .gallery h2.section-title { color: #fff; }
 
-    .gallery-grid {
+    /* Bento-сетка: верхний блок + нижний ряд */
+    .gallery-bento { display: flex; flex-direction: column; gap: 12px; }
+
+    .gb-top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: 260px 260px 260px;
-      gap: 10px;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 12px;
+    }
+    .gb-hero { grid-row: span 2; }
+
+    .gb-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 260px;
+      gap: 12px;
     }
 
-    /* Каждый блок — плейсхолдер + будущее фото */
-    .gallery-item {
+    .gb-item {
       position: relative;
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
-      background-color: #0d1b2a;
-      background-size: cover;
-      background-position: center;
-      border: 1px solid rgba(199,165,103,.22);
-      display: flex; align-items: center; justify-content: center;
       cursor: pointer;
-      transition: transform .35s ease, box-shadow .35s ease, border-color .35s;
+      border: 1px solid rgba(199,165,103,.22);
+      background: #0d1b2a;
     }
-
-    .gallery-item:hover {
-      transform: scale(1.025) translateY(-8px);
-      box-shadow: 0 18px 40px rgba(0,0,0,.55);
-      border-color: rgba(199,165,103,.6);
-      z-index: 1;
+    .gb-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .4s ease;
     }
+    .gb-item:hover img { transform: scale(1.05); }
 
-    /* Метка исчезает при наведении (когда будет реальное фото — скроется сама) */
-    .gallery-label {
-      font-family: 'Montserrat', sans-serif; font-size: 10px;
-      letter-spacing: 2.2px; text-transform: uppercase;
-      color: rgba(199,165,103,.65);
-      padding: 7px 14px;
-      border: 1px solid rgba(199,165,103,.28);
-      pointer-events: none;
-      transition: opacity .3s;
-      text-align: center;
-    }
-
-    .gallery-item:hover .gallery-label { opacity: 0; }
-
-    /* Тонкий золотой shimmer-оверлей при наведении */
-    .gallery-item::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(199,165,103,.07) 0%, transparent 60%);
-      opacity: 0; transition: opacity .35s;
+    /* Подпись зоны — появляется при наведении */
+    .gb-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 40px 18px 16px;
+      background: linear-gradient(to top, rgba(10,19,32,.72) 0%, transparent 100%);
+      font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.85);
+      opacity: 0; transform: translateY(6px);
+      transition: opacity .35s, transform .35s;
       pointer-events: none;
     }
-    .gallery-item:hover::after { opacity: 1; }
-
-    /* Раскладка: первое фото большое (2 строки) */
-    .gi-1 { grid-column: 1; grid-row: 1 / span 2; }
-    /* 2-5 — правая сетка 2×2 */
-    .gi-2 { grid-column: 2; grid-row: 1; }
-    .gi-3 { grid-column: 3; grid-row: 1; }
-    .gi-4 { grid-column: 2; grid-row: 2; }
-    .gi-5 { grid-column: 3; grid-row: 2; }
-    /* Шестое — широкое нижнее */
-    .gi-6 { grid-column: 1 / span 3; grid-row: 3; }
+    .gb-item:hover .gb-caption { opacity: 1; transform: translateY(0); }
 
     /* ───── ADVANTAGES (bento grid) ───── */
     .advantages {
@@ -1011,16 +996,9 @@
       .adv-card-hero { grid-column: span 1; padding: 28px 22px; }
       .contacts-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 20px 24px; }
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 200px 200px 160px 160px;
-      }
-      .gi-1 { grid-column: 1 / span 2; grid-row: 1; }
-      .gi-2 { grid-column: 1; grid-row: 2; }
-      .gi-3 { grid-column: 2; grid-row: 2; }
-      .gi-4 { grid-column: 1; grid-row: 3; }
-      .gi-5 { grid-column: 2; grid-row: 3; }
-      .gi-6 { grid-column: 1 / span 2; grid-row: 4; }
+      .gb-top { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px; }
+      .gb-hero { grid-row: span 2; }
+      .gb-bottom { grid-template-rows: 200px; }
 
       .location {
         grid-template-columns: 1fr;
@@ -1040,13 +1018,9 @@
       .adv-card-hero { grid-column: span 1; }
       footer { flex-direction: column; text-align: center; gap: 8px; padding: 20px; }
       .footer-links { justify-content: center; }
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 200px);
-      }
-      .gi-1, .gi-2, .gi-3, .gi-4, .gi-5, .gi-6 {
-        grid-column: 1; grid-row: auto;
-      }
+      .gb-top { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
+      .gb-hero { grid-row: span 1; }
+      .gb-bottom { grid-template-columns: 1fr; grid-template-rows: repeat(2, 220px); }
       .location { padding: 40px 20px; }
       .contacts-form-title { font-size: 24px; line-height: 1.18; }
     }
@@ -1179,7 +1153,7 @@
   </nav>
 
   <div class="lang-switch" role="group" aria-label="Язык">
-    <button class="lang-btn" data-lang="ka">ГЕ</button>
+    <button class="lang-btn" data-lang="ka">GE</button>
     <span class="lang-sep">|</span>
     <button class="lang-btn active" data-lang="ru">РУ</button>
     <span class="lang-sep">|</span>
@@ -1453,20 +1427,35 @@
     <h2 class="section-title">Жизнь у моря<br>в каждой детали</h2>
   </div>
 
-  <div class="gallery-grid">
+  <div class="gallery-bento">
 
-    <!--
-      Чтобы заменить плейсхолдер на реальное фото — добавьте атрибут style:
-        style="background-image: url('photos/facade.jpg')"
-      или поставьте тег <img> внутри .gallery-item вместо .gallery-label
-    -->
+    <!-- Верхний блок: герой (2 ряда) + аэро + двор -->
+    <div class="gb-top">
+      <div class="gb-item gb-hero" onclick="openLightbox('gallery-4.jpg')">
+        <img src="gallery-4.jpg" alt="Фасад комплекса Grand Line">
+        <div class="gb-caption">Фасад</div>
+      </div>
+      <div class="gb-item" onclick="openLightbox('gallery-5.jpg')">
+        <img src="gallery-5.jpg" alt="Аэросъёмка комплекса">
+        <div class="gb-caption">Аэросъёмка</div>
+      </div>
+      <div class="gb-item" onclick="openLightbox('gallery-6.jpg')">
+        <img src="gallery-6.jpg" alt="Двор и парковка">
+        <div class="gb-caption">Двор</div>
+      </div>
+    </div>
 
-    <div class="gallery-item gi-1" style="background-image:url('gallery-2.jpg')"></div>
-    <div class="gallery-item gi-2" style="background-image:url('gallery-6.jpg')"></div>
-    <div class="gallery-item gi-3" style="background-image:url('gallery-5.jpg')"></div>
-    <div class="gallery-item gi-4" style="background-image:url('gallery-1.jpg')"></div>
-    <div class="gallery-item gi-5" style="background-image:url('gallery-3.jpg')"></div>
-    <div class="gallery-item gi-6" style="background-image:url('gallery-4.jpg'); background-position: center 30%"></div>
+    <!-- Нижний ряд: два интерьера -->
+    <div class="gb-bottom">
+      <div class="gb-item" onclick="openLightbox('gallery-3.jpg')">
+        <img src="gallery-3.jpg" alt="Гостиная">
+        <div class="gb-caption">Гостиная</div>
+      </div>
+      <div class="gb-item" onclick="openLightbox('gallery-1.jpg')">
+        <img src="gallery-1.jpg" alt="Интерьер">
+        <div class="gb-caption">Интерьер</div>
+      </div>
+    </div>
 
   </div>
 
@@ -1728,8 +1717,7 @@
         </div>
         <div>
           <div class="contact-label">Телефон</div>
-          <!-- ЗАМЕНИТЕ href и текст на реальный номер -->
-          <a href="tel:+995000000000" class="contact-value">+995 XXX XXX XXX</a>
+          <span class="contact-value">+995 511 484 712</span>
         </div>
       </div>
 
@@ -1744,8 +1732,7 @@
         </div>
         <div>
           <div class="contact-label">Email</div>
-          <!-- ЗАМЕНИТЕ href и текст на реальный email -->
-          <a href="mailto:info@grandline.ge" class="contact-value">info@grandline.ge</a>
+          <span class="contact-value">1837444@gmail.com</span>
         </div>
       </div>
 
@@ -1764,10 +1751,8 @@
         </div>
       </div>
 
-      <!-- Мессенджеры — ЗАМЕНИТЕ ссылки на реальные чаты -->
       <div class="messenger-btns">
-        <!-- ЗАМЕНИТЕ href на ссылку WhatsApp: https://wa.me/995XXXXXXXXX -->
-        <a href="#" class="btn-messenger">
+        <a href="https://wa.me/995511484712" target="_blank" rel="noopener" class="btn-messenger">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
                stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7
@@ -1777,14 +1762,13 @@
           </svg>
           WhatsApp
         </a>
-        <!-- ЗАМЕНИТЕ href на ссылку Telegram: https://t.me/USERNAME -->
-        <a href="#" class="btn-messenger">
+        <a href="https://t.me/AleksandrRealtorBatumi" target="_blank" rel="noopener" class="btn-messenger">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
                stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"/>
             <polygon points="22 2 15 22 11 13 2 9 22 2"/>
           </svg>
-          Telegram
+          @AleksandrRealtorBatumi
         </a>
       </div>
 
@@ -1934,7 +1918,7 @@
     [
       ['.adv-grid',     0.10],
       ['.plans-grid',   0.15],
-      ['.gallery-grid', 0.07],
+      ['.gallery-bento', 0.07],
       ['.stats',        0.10],
     ].forEach(function (pair) {
       var sel = pair[0], step = pair[1];
