@@ -333,13 +333,12 @@
     }
 
     /* Right map panel */
-    .loc-mapwrap { position: relative; }
-    .loc-mapwrap::after {
-      content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
-      box-shadow: inset 60px 0 60px -40px rgba(242,239,233,.88);
+    .loc-mapwrap {
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 28px;
     }
-    .loc-map { position: absolute; inset: 0; overflow: hidden; }
-    .loc-map img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .loc-map { position: relative; width: 88%; }
+    .loc-map img { width: 100%; height: auto; display: block; object-fit: contain; }
 
     /* Glass badges over map */
     .loc-badge {
@@ -367,8 +366,8 @@
       font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
       color: rgba(0,0,0,.42); margin-top: 4px;
     }
-    .loc-b1 { top: 46px; right: 46px; }
-    .loc-b2 { top: 152px; right: 112px; }
+    .loc-b1 { top: 20px; right: 20px; }
+    .loc-b2 { top: 114px; right: 68px; }
 
     /* ── Shared form elements (contacts section) ── */
     .field { margin-bottom: 12px; }
@@ -1290,9 +1289,11 @@
     @media (max-width: 1100px) {
       .hero-body { grid-template-columns: 1fr 280px; padding: 44px 36px 30px; }
       .location { grid-template-columns: 1fr; min-height: auto; }
-      .loc-mapwrap { height: 460px; }
-      .loc-b1 { top: 24px; right: 24px; }
-      .loc-b2 { top: 116px; right: 80px; }
+      .loc-mapwrap { height: 460px; padding: 16px; }
+      .loc-map { height: 100%; }
+      .loc-map img { height: 100%; object-fit: contain; }
+      .loc-b1 { top: 16px; right: 16px; }
+      .loc-b2 { top: 104px; right: 64px; }
     }
 
     @media (max-width: 900px) {
@@ -1326,7 +1327,7 @@
       .gb-bottom { grid-template-rows: 200px; }
 
       .location { grid-template-columns: 1fr; min-height: auto; }
-      .loc-mapwrap { height: 400px; }
+      .loc-mapwrap { height: 400px; padding: 12px; }
       .loc-panel { padding: 52px 28px; }
     }
 
@@ -1345,10 +1346,10 @@
       .gb-top { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
       .gb-hero { grid-row: span 1; }
       .gb-bottom { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
-      .loc-mapwrap { height: 360px; }
+      .loc-mapwrap { height: 360px; padding: 12px; }
       .loc-panel { padding: 40px 20px; }
-      .loc-b1 { top: 16px; right: 16px; }
-      .loc-b2 { top: 96px; right: 60px; }
+      .loc-b1 { top: 12px; right: 12px; }
+      .loc-b2 { top: 88px; right: 56px; }
       .contacts-form-title { font-size: 24px; line-height: 1.18; }
     }
 
@@ -2173,37 +2174,37 @@
     </div>
   </div>
 
-  <!-- ПРАВАЯ ПАНЕЛЬ: карта на весь экран -->
+  <!-- ПРАВАЯ ПАНЕЛЬ: карта -->
   <div class="loc-mapwrap">
     <div class="loc-map">
       <img src="gonio-map.png" alt="Карта расположения Grand Line в Гонио">
-    </div>
 
-    <!-- Стеклянный бейдж: море -->
-    <div class="loc-badge loc-b1">
-      <div class="loc-badge-ic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
-          <path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
-        </svg>
+      <!-- Стеклянный бейдж: море -->
+      <div class="loc-badge loc-b1">
+        <div class="loc-badge-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+            <path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+          </svg>
+        </div>
+        <div>
+          <div class="loc-badge-num">250 м</div>
+          <div class="loc-badge-lbl">До моря</div>
+        </div>
       </div>
-      <div>
-        <div class="loc-badge-num">250 м</div>
-        <div class="loc-badge-lbl">До моря</div>
-      </div>
-    </div>
 
-    <!-- Стеклянный бейдж: Батуми -->
-    <div class="loc-badge loc-b2">
-      <div class="loc-badge-ic">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 21s7-5.5 7-11a7 7 0 00-14 0c0 5.5 7 11 7 11z"/>
-          <circle cx="12" cy="10" r="2.4"/>
-        </svg>
-      </div>
-      <div>
-        <div class="loc-badge-num">8 км</div>
-        <div class="loc-badge-lbl">До Батуми</div>
+      <!-- Стеклянный бейдж: Батуми -->
+      <div class="loc-badge loc-b2">
+        <div class="loc-badge-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s7-5.5 7-11a7 7 0 00-14 0c0 5.5 7 11 7 11z"/>
+            <circle cx="12" cy="10" r="2.4"/>
+          </svg>
+        </div>
+        <div>
+          <div class="loc-badge-num">8 км</div>
+          <div class="loc-badge-lbl">До Батуми</div>
+        </div>
       </div>
     </div>
   </div>
