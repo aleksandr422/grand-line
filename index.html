@@ -338,12 +338,30 @@
       padding: 40px 28px; background: var(--light-bg);
     }
     .loc-map {
-      position: relative; width: 82%;
+      position: relative; width: 60%;
       border-radius: 16px; overflow: hidden;
       border: 1px solid rgba(191,154,94,.25);
       box-shadow: 0 20px 50px rgba(40,35,20,.15);
+      cursor: pointer;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .loc-map:hover {
+      transform: scale(1.02);
+      box-shadow: 0 28px 64px rgba(40,35,20,.22);
     }
     .loc-map img { width: 100%; height: auto; display: block; object-fit: contain; }
+    .loc-map-expand {
+      position: absolute; bottom: 10px; right: 10px; z-index: 2;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(10,19,32,.45);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.3);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; pointer-events: none;
+      transition: background .2s;
+    }
+    .loc-map:hover .loc-map-expand { background: rgba(10,19,32,.7); }
+    .loc-map-expand svg { width: 14px; height: 14px; }
 
     /* Glass badges over map */
     .loc-badge {
@@ -371,8 +389,6 @@
       font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
       color: rgba(0,0,0,.42); margin-top: 4px;
     }
-    .loc-b1 { top: 14px; right: 14px; }
-    .loc-b2 { top: 104px; right: 54px; }
 
     /* ── Shared form elements (contacts section) ── */
     .field { margin-bottom: 12px; }
@@ -1295,9 +1311,7 @@
       .hero-body { grid-template-columns: 1fr 280px; padding: 44px 36px 30px; }
       .location { grid-template-columns: 1fr; min-height: auto; }
       .loc-mapwrap { padding: 28px 20px; }
-      .loc-map { width: 88%; }
-      .loc-b1 { top: 12px; right: 12px; }
-      .loc-b2 { top: 94px; right: 46px; }
+      .loc-map { width: 78%; }
     }
 
     @media (max-width: 900px) {
@@ -1351,10 +1365,8 @@
       .gb-hero { grid-row: span 1; }
       .gb-bottom { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
       .loc-mapwrap { padding: 20px 16px; }
-      .loc-map { width: 92%; }
+      .loc-map { width: 84%; }
       .loc-panel { padding: 40px 20px; }
-      .loc-b1 { top: 10px; right: 10px; }
-      .loc-b2 { top: 82px; right: 40px; }
       .contacts-form-title { font-size: 24px; line-height: 1.18; }
     }
 
@@ -2181,35 +2193,12 @@
 
   <!-- ПРАВАЯ ПАНЕЛЬ: карта -->
   <div class="loc-mapwrap">
-    <div class="loc-map">
+    <div class="loc-map" onclick="openLightbox('gonio-map.png')" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('gonio-map.png')" role="button" aria-label="Открыть карту в полный размер" tabindex="0">
       <img src="gonio-map.png" alt="Карта расположения Grand Line в Гонио">
-
-      <!-- Стеклянный бейдж: море -->
-      <div class="loc-badge loc-b1">
-        <div class="loc-badge-ic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
-            <path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
-          </svg>
-        </div>
-        <div>
-          <div class="loc-badge-num">250 м</div>
-          <div class="loc-badge-lbl">До моря</div>
-        </div>
-      </div>
-
-      <!-- Стеклянный бейдж: Батуми -->
-      <div class="loc-badge loc-b2">
-        <div class="loc-badge-ic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 21s7-5.5 7-11a7 7 0 00-14 0c0 5.5 7 11 7 11z"/>
-            <circle cx="12" cy="10" r="2.4"/>
-          </svg>
-        </div>
-        <div>
-          <div class="loc-badge-num">8 км</div>
-          <div class="loc-badge-lbl">До Батуми</div>
-        </div>
+      <div class="loc-map-expand" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+        </svg>
       </div>
     </div>
   </div>
