@@ -266,8 +266,8 @@
     /* ───── LOCATION ───── */
     .location {
       background: var(--light-bg); color: #1a1a1a;
-      padding: var(--section-pad) var(--section-h-pad);
-      display: flex; flex-direction: column; gap: 36px;
+      padding: 40px var(--section-h-pad) 44px;
+      display: flex; flex-direction: column; gap: 24px;
       position: relative; overflow: hidden;
     }
     /* Subtle dot texture */
@@ -371,16 +371,17 @@
 
     /* Lower 3 cards */
     .loc-lower {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
-      max-width: 920px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; align-items: stretch;
     }
     .loc-card {
       background: rgba(255,255,255,.52);
       border: 1px solid rgba(199,165,103,.2);
       border-radius: 14px;
-      padding: 20px 22px;
+      padding: 24px;
       backdrop-filter: blur(4px);
       display: flex; gap: 14px; align-items: flex-start;
+      box-sizing: border-box; overflow: visible;
     }
     .loc-card-icon {
       width: 40px; height: 40px; border-radius: 50%;
@@ -1375,7 +1376,8 @@
       .gb-top { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
       .gb-hero { grid-row: span 1; }
       .gb-bottom { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
-      .location { padding: 40px 20px; }
+      .location { padding: 32px 20px 36px; }
+      .loc-lower { gap: 12px; }
       .map-wrap { width: 100%; }
       .map-wrap img { width: 100%; height: auto; }
       .contacts-form-title { font-size: 24px; line-height: 1.18; }
