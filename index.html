@@ -266,8 +266,8 @@
     /* ───── LOCATION ───── */
     .location {
       background: var(--light-bg); color: #1a1a1a;
-      display: grid; grid-template-columns: 1fr 1.15fr 1fr;
-      gap: 52px; padding: var(--section-pad) var(--section-h-pad);
+      padding: var(--section-pad) var(--section-h-pad);
+      display: flex; flex-direction: column; gap: 36px;
     }
 
     .section-tag {
@@ -283,57 +283,104 @@
       line-height: 1.15; margin-bottom: 18px; color: var(--dark);
     }
 
+    /* Upper 3-col grid */
+    .loc-upper {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px; align-items: center;
+    }
+    .loc-left { display: flex; flex-direction: column; }
+
+    /* Pin tag */
+    .loc-pin-tag {
+      display: flex; align-items: center; gap: 7px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .loc-pin-tag svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* Diamond divider */
+    .loc-diamond {
+      display: flex; align-items: center; margin: 16px 0;
+    }
+    .loc-diamond-line { flex: 1; height: 1px; background: rgba(199,165,103,.35); }
+    .loc-diamond-gem {
+      width: 8px; height: 8px; background: var(--gold);
+      transform: rotate(45deg); flex-shrink: 0; margin: 0 10px;
+    }
+
     .loc-desc {
-      font-family: 'Montserrat', sans-serif; font-size: 14.5px;
+      font-family: 'Montserrat', sans-serif; font-size: 14px;
       color: #3A3A3A; line-height: 1.75;
     }
 
     /* MAP */
     .map-wrap {
       position: relative; overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 2px 14px rgba(0,0,0,.10);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
       width: fit-content; max-width: 100%; margin: 0 auto;
     }
     .map-wrap img { display: block; height: 420px; width: auto; }
     .map-wrap svg { display: block; width: 100%; height: 100%; }
 
-
-    /* ── Location info column ── */
-    .loc-info {
-      display: flex; flex-direction: column; justify-content: center;
-      align-items: flex-start;
+    /* Right badges */
+    .loc-right {
+      display: flex; flex-direction: column; gap: 14px;
     }
-
-    .loc-info-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(22px, 1.9vw, 28px); font-weight: 600;
-      line-height: 1.35; color: var(--dark);
-      margin-bottom: 28px;
-    }
-
-    .loc-bullets {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 18px;
-    }
-
-    .loc-bullet {
+    .loc-badge {
+      background: #fff; border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
       display: flex; align-items: center; gap: 14px;
     }
-
-    .loc-bullet-icon {
-      width: 36px; height: 36px; flex-shrink: 0;
-      border: 1.5px solid rgba(199,165,103,.45);
-      border-radius: 50%;
+    .loc-badge-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(199,165,103,.10);
+      border: 1.5px solid rgba(199,165,103,.4);
       display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
+      color: var(--gold); flex-shrink: 0;
     }
-    .loc-bullet-icon svg { width: 14px; height: 14px; }
-
-    .loc-bullet-text {
+    .loc-badge-icon svg { width: 18px; height: 18px; }
+    .loc-badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px; font-weight: 700;
+      color: var(--dark); line-height: 1;
+    }
+    .loc-badge-lbl {
       font-family: 'Montserrat', sans-serif;
-      font-size: 14px; font-weight: 500; line-height: 1.45;
-      color: #2a2a2a;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(0,0,0,.38);
+      margin-top: 3px;
+    }
+
+    /* Lower 3 cards */
+    .loc-lower {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .loc-card {
+      background: #fff; border-radius: 12px;
+      padding: 20px 20px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .loc-card-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(199,165,103,.10);
+      border: 1.5px solid rgba(199,165,103,.4);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); flex-shrink: 0; margin-top: 2px;
+    }
+    .loc-card-icon svg { width: 16px; height: 16px; }
+    .loc-card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: .3px;
+      color: var(--dark); margin-bottom: 6px;
+    }
+    .loc-card-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; line-height: 1.65; color: rgba(0,0,0,.48);
     }
 
     /* ── Shared form elements (contacts section) ── */
@@ -1255,8 +1302,8 @@
     /* ───── RESPONSIVE ───── */
     @media (max-width: 1100px) {
       .hero-body { grid-template-columns: 1fr 280px; padding: 44px 36px 30px; }
-      .location { grid-template-columns: 1fr 1fr; gap: 36px; padding: 60px 36px; }
-      .location > :last-child { grid-column: 1 / -1; max-width: 480px; }
+      .loc-upper { grid-template-columns: 1fr; }
+      .loc-lower { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 900px) {
@@ -1289,11 +1336,8 @@
       .gb-hero { grid-row: span 2; }
       .gb-bottom { grid-template-rows: 200px; }
 
-      .location {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .location > :last-child { max-width: 100%; }
+      .loc-upper { grid-template-columns: 1fr; }
+      .loc-lower { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 600px) {
@@ -2076,59 +2120,112 @@
 <!-- ══════════════ LOCATION ══════════════ -->
 <section class="location" id="location">
 
-  <!-- TEXT -->
-  <div>
-    <div class="section-tag">Локация проекта — Гонио</div>
-    <h2 class="section-title">Море рядом,<br>жизнь спокойно</h2>
-    <p class="loc-desc">
-      Всего 250 метров до набережной Гонио. Тихий нетуристический район — чистый воздух и всего 8 км до центра Батуми.
-    </p>
-  </div>
+  <!-- ВЕРХНИЙ БЛОК: 3 колонки -->
+  <div class="loc-upper">
 
-  <!-- MAP -->
-  <div class="map-wrap">
-    <img src="gonio-map.png" alt="Карта расположения Grand Line в Гонио">
-  </div>
+    <!-- ЛЕВО: текст -->
+    <div class="loc-left">
+      <div class="loc-pin-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Локация проекта — Гонио
+      </div>
+      <h2 class="section-title">Море рядом,<br>жизнь спокойно</h2>
+      <div class="loc-diamond">
+        <div class="loc-diamond-line"></div>
+        <div class="loc-diamond-gem"></div>
+        <div class="loc-diamond-line"></div>
+      </div>
+      <p class="loc-desc">Всего 250 метров до набережной Гонио. Тихий нетуристический район — чистый воздух и всего 8 км до центра Батуми.</p>
+    </div>
 
-  <!-- LOCATION INFO -->
-  <div class="loc-info">
-    <div class="section-tag">Локация проекта — Гонио</div>
-    <div class="loc-info-title">Море рядом,<br>жизнь спокойно</div>
-    <ul class="loc-bullets">
-      <li class="loc-bullet">
-        <div class="loc-bullet-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-               stroke-linecap="round" stroke-linejoin="round">
+    <!-- ЦЕНТР: карта -->
+    <div class="map-wrap">
+      <img src="gonio-map.png" alt="Карта расположения Grand Line в Гонио">
+    </div>
+
+    <!-- ПРАВО: бейджи -->
+    <div class="loc-right">
+      <div class="loc-badge">
+        <div class="loc-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
             <path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
           </svg>
         </div>
-        <span class="loc-bullet-text">Направление Сарпи — живописное побережье Чёрного моря, вдали от шума туристических кварталов Батуми</span>
-      </li>
-      <li class="loc-bullet">
-        <div class="loc-bullet-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-               stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a9 9 0 00-9 9c0 5 9 13 9 13s9-8 9-13a9 9 0 00-9-9z"/>
-            <circle cx="12" cy="11" r="3"/>
+        <div>
+          <div class="loc-badge-num">250 м</div>
+          <div class="loc-badge-lbl">До моря</div>
+        </div>
+      </div>
+      <div class="loc-badge">
+        <div class="loc-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
           </svg>
         </div>
-        <span class="loc-bullet-text">Тихий район — нетуристическая спокойная зона с чистым воздухом, идеально для постоянного проживания</span>
-      </li>
-      <li class="loc-bullet">
-        <div class="loc-bullet-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-               stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="9" height="14" rx="1"/>
-            <rect x="13" y="3" width="9" height="18" rx="1"/>
-            <line x1="6" y1="7" x2="6" y2="5"/>
-            <line x1="17" y1="3" x2="17" y2="1"/>
-          </svg>
+        <div>
+          <div class="loc-badge-num">8 км</div>
+          <div class="loc-badge-lbl">До Батуми</div>
         </div>
-        <span class="loc-bullet-text">Близость к Батуми — ~8 км до центра, вся городская инфраструктура в быстрой досягаемости</span>
-      </li>
-    </ul>
-  </div>
+      </div>
+      <div class="loc-diamond">
+        <div class="loc-diamond-line"></div>
+        <div class="loc-diamond-gem"></div>
+        <div class="loc-diamond-line"></div>
+      </div>
+    </div>
+
+  </div><!-- /loc-upper -->
+
+  <!-- НИЖНИЙ БЛОК: 3 карточки -->
+  <div class="loc-lower">
+
+    <div class="loc-card">
+      <div class="loc-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+          <path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+        </svg>
+      </div>
+      <div>
+        <div class="loc-card-title">Направление Сарпи</div>
+        <div class="loc-card-text">Живописное побережье Чёрного моря, вдали от шума туристических кварталов Батуми</div>
+      </div>
+    </div>
+
+    <div class="loc-card">
+      <div class="loc-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div>
+        <div class="loc-card-title">Тихий район</div>
+        <div class="loc-card-text">Нетуристическая спокойная зона с чистым воздухом, идеально для постоянного проживания</div>
+      </div>
+    </div>
+
+    <div class="loc-card">
+      <div class="loc-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="9" height="14" rx="1"/>
+          <rect x="13" y="3" width="9" height="18" rx="1"/>
+          <line x1="6" y1="7" x2="6" y2="5"/>
+          <line x1="17" y1="3" x2="17" y2="1"/>
+        </svg>
+      </div>
+      <div>
+        <div class="loc-card-title">Близость к Батуми</div>
+        <div class="loc-card-text">~8 км до центра, вся городская инфраструктура в быстрой досягаемости</div>
+      </div>
+    </div>
+
+  </div><!-- /loc-lower -->
 
 </section>
 
