@@ -685,14 +685,37 @@
     }
     .plans-brochure:hover { border-color: var(--gold); }
 
+    /* Left col — flex so brochure sticks to bottom */
+    .plans-top-left {
+      display: flex; flex-direction: column;
+    }
+    .plans-brochure { margin-top: auto; }
+
+    /* Bullets under facts */
+    .plans-bullets {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 24px;
+      padding-top: 4px;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .plans-bullet {
+      display: flex; align-items: center; gap: 9px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; line-height: 1.4;
+      color: rgba(255,255,255,.55);
+    }
+    .plans-bullet svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; }
+
     /* Right col — image card */
     .plans-layout-card {
       border: 1px solid rgba(199,165,103,.3);
       border-radius: 12px; overflow: hidden;
       background: #0d1b2a;
       display: flex; flex-direction: column;
+      max-height: 520px;
     }
-    .plans-layout-card img { width: 100%; flex: 1; min-height: 0; display: block; object-fit: cover; }
+    .plans-layout-card img { width: 100%; flex: 1; min-height: 0; display: block; object-fit: cover; object-position: center; }
     .plans-layout-caption {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase;
@@ -1562,6 +1585,28 @@
           <span class="plans-fact-text">Сдача — IV квартал 2026</span>
         </div>
       </div>
+
+      <!-- Буллеты -->
+      <ul class="plans-bullets">
+        <li class="plans-bullet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          Отдельный вход в каждый таунхаус
+        </li>
+        <li class="plans-bullet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          Личный двор 25 м²
+        </li>
+        <li class="plans-bullet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          Крытая терраса 48 м² с видом на море
+        </li>
+      </ul>
 
       <a href="#kontakty" class="plans-brochure" onclick="scrollToSection('kontakty'); return false;">
         Получить брошюру с планировками →
