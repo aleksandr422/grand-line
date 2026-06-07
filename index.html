@@ -372,6 +372,7 @@
     /* Lower 3 cards */
     .loc-lower {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+      max-width: 920px; margin: 0 auto; width: 100%;
     }
     .loc-card {
       background: rgba(255,255,255,.52);
@@ -387,7 +388,7 @@
       display: flex; align-items: center; justify-content: center;
       color: var(--gold); flex-shrink: 0; margin-top: 1px;
     }
-    .loc-card-icon svg { width: 16px; height: 16px; }
+    .loc-card-icon svg { width: 18px; height: 18px; }
     .loc-card-line {
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px; line-height: 1.65;
@@ -2205,9 +2206,9 @@
 
     <div class="loc-card">
       <div class="loc-card-icon">
-        <!-- горы -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 20h20L14 7l-4 6-3-4z"/>
+        <!-- горы (Lucide mountain) -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
         </svg>
       </div>
       <p class="loc-card-line"><strong>Направление Сарпи</strong> — живописное побережье Чёрного моря, вдали от шума туристических кварталов Батуми</p>
@@ -2215,13 +2216,10 @@
 
     <div class="loc-card">
       <div class="loc-card-icon">
-        <!-- лист/росток -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22V11"/>
-          <path d="M12 11C10 7 6 6 4 8c4 0 7 2 8 3z"/>
-          <path d="M12 11c2-4 6-5 8-3-4 0-7 2-8 3z"/>
-          <path d="M12 16c-2-2-5-2-6 0 3 0 5 1 6 2z"/>
-          <path d="M12 16c2-2 5-2 6 0-3 0-5 1-6 2z"/>
+        <!-- лист (Lucide leaf) -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+          <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
         </svg>
       </div>
       <p class="loc-card-line"><strong>Тихий район</strong> — нетуристическая спокойная зона с чистым воздухом, идеально для постоянного проживания</p>
@@ -2229,13 +2227,12 @@
 
     <div class="loc-card">
       <div class="loc-card-icon">
-        <!-- город -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="8" width="8" height="13" rx="1"/>
-          <rect x="10" y="4" width="6" height="17" rx="1"/>
-          <rect x="16" y="10" width="6" height="11" rx="1"/>
-          <line x1="5" y1="8" x2="5" y2="6"/>
-          <line x1="13" y1="4" x2="13" y2="2"/>
+        <!-- город (Lucide building-2) -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18z"/>
+          <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+          <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+          <path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
         </svg>
       </div>
       <p class="loc-card-line"><strong>Близость к Батуми</strong> — ~8 км до центра, вся городская инфраструктура в быстрой досягаемости</p>
