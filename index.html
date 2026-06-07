@@ -333,12 +333,9 @@
     }
 
     /* Right map panel */
-    .loc-mapwrap {
-      display: flex; align-items: center; justify-content: center;
-      padding: 40px 28px;
-    }
-    .loc-map { position: relative; width: 88%; }
-    .loc-map img { width: 100%; height: auto; display: block; object-fit: contain; }
+    .loc-mapwrap { position: relative; }
+    .loc-map { position: absolute; inset: 0; overflow: hidden; }
+    .loc-map img { width: 100%; height: 100%; display: block; object-fit: cover; }
 
     /* Glass badges over map */
     .loc-badge {
@@ -366,8 +363,8 @@
       font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
       color: rgba(0,0,0,.42); margin-top: 4px;
     }
-    .loc-b1 { top: 20px; right: 20px; }
-    .loc-b2 { top: 114px; right: 68px; }
+    .loc-b1 { top: 46px; right: 46px; }
+    .loc-b2 { top: 152px; right: 112px; }
 
     /* ── Shared form elements (contacts section) ── */
     .field { margin-bottom: 12px; }
@@ -1289,11 +1286,9 @@
     @media (max-width: 1100px) {
       .hero-body { grid-template-columns: 1fr 280px; padding: 44px 36px 30px; }
       .location { grid-template-columns: 1fr; min-height: auto; }
-      .loc-mapwrap { height: 460px; padding: 16px; }
-      .loc-map { height: 100%; }
-      .loc-map img { height: 100%; object-fit: contain; }
-      .loc-b1 { top: 16px; right: 16px; }
-      .loc-b2 { top: 104px; right: 64px; }
+      .loc-mapwrap { height: 460px; }
+      .loc-b1 { top: 24px; right: 24px; }
+      .loc-b2 { top: 116px; right: 80px; }
     }
 
     @media (max-width: 900px) {
@@ -1327,7 +1322,7 @@
       .gb-bottom { grid-template-rows: 200px; }
 
       .location { grid-template-columns: 1fr; min-height: auto; }
-      .loc-mapwrap { height: 400px; padding: 12px; }
+      .loc-mapwrap { height: 400px; }
       .loc-panel { padding: 52px 28px; }
     }
 
@@ -1346,10 +1341,10 @@
       .gb-top { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
       .gb-hero { grid-row: span 1; }
       .gb-bottom { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
-      .loc-mapwrap { height: 360px; padding: 12px; }
+      .loc-mapwrap { height: 360px; }
       .loc-panel { padding: 40px 20px; }
-      .loc-b1 { top: 12px; right: 12px; }
-      .loc-b2 { top: 88px; right: 56px; }
+      .loc-b1 { top: 16px; right: 16px; }
+      .loc-b2 { top: 96px; right: 60px; }
       .contacts-form-title { font-size: 24px; line-height: 1.18; }
     }
 
