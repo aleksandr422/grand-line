@@ -290,11 +290,12 @@
 
     /* MAP */
     .map-wrap {
-      position: relative; height: 420px; overflow: hidden;
+      position: relative; overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 2px 14px rgba(0,0,0,.10);
-      background: var(--light-bg);
+      width: fit-content; max-width: 100%; margin: 0 auto;
     }
+    .map-wrap img { display: block; height: 420px; width: auto; }
     .map-wrap svg { display: block; width: 100%; height: 100%; }
 
 
@@ -1311,7 +1312,8 @@
       .gb-hero { grid-row: span 1; }
       .gb-bottom { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
       .location { padding: 40px 20px; }
-      .map-wrap { height: auto; aspect-ratio: 3 / 4; }
+      .map-wrap { width: 100%; }
+      .map-wrap img { width: 100%; height: auto; }
       .contacts-form-title { font-size: 24px; line-height: 1.18; }
     }
 
@@ -2085,8 +2087,7 @@
 
   <!-- MAP -->
   <div class="map-wrap">
-    <img src="gonio-map.png" alt="Карта расположения Grand Line в Гонио"
-         style="width:100%;height:100%;object-fit:contain;display:block;">
+    <img src="gonio-map.png" alt="Карта расположения Grand Line в Гонио">
   </div>
 
   <!-- LOCATION INFO -->
