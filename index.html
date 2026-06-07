@@ -266,7 +266,7 @@
     /* ───── LOCATION ───── */
     .location {
       display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 100vh; overflow: hidden;
+      min-height: 660px; overflow: hidden;
       position: relative; background: var(--light-bg); color: #1a1a1a;
     }
     .location::before {
@@ -289,7 +289,7 @@
 
     /* Left panel */
     .loc-panel {
-      padding: 80px 56px 80px 68px;
+      padding: 52px 56px 52px 68px;
       display: flex; flex-direction: column; justify-content: center;
       position: relative; z-index: 1;
     }
@@ -310,11 +310,11 @@
     .loc-lede {
       font-family: 'Montserrat', sans-serif;
       font-size: 15px; line-height: 1.75; color: #5a5650;
-      max-width: 420px; margin-bottom: 40px;
+      max-width: 420px; margin-bottom: 26px;
     }
 
     /* Feature rows */
-    .loc-feats { display: flex; flex-direction: column; gap: 26px; max-width: 440px; }
+    .loc-feats { display: flex; flex-direction: column; gap: 18px; max-width: 440px; }
     .loc-feat { display: flex; gap: 18px; align-items: flex-start; }
     .loc-feat-ic {
       flex: 0 0 48px; height: 48px; border-radius: 50%;
@@ -335,7 +335,10 @@
     /* Right map panel */
     .loc-mapwrap { position: relative; }
     .loc-map { position: absolute; inset: 0; overflow: hidden; }
-    .loc-map img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .loc-map img {
+      width: 100%; height: 100%; display: block;
+      object-fit: cover; object-position: center center;
+    }
 
     /* Glass badges over map */
     .loc-badge {
