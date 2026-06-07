@@ -268,7 +268,16 @@
       background: var(--light-bg); color: #1a1a1a;
       padding: var(--section-pad) var(--section-h-pad);
       display: flex; flex-direction: column; gap: 36px;
+      position: relative; overflow: hidden;
     }
+    /* Subtle dot texture */
+    .location::before {
+      content: ''; pointer-events: none;
+      position: absolute; inset: 0; z-index: 0;
+      background-image: radial-gradient(circle, rgba(199,165,103,.09) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+    .location > * { position: relative; z-index: 1; }
 
     .section-tag {
       font-family: 'Montserrat', sans-serif; font-size: 10.5px;
@@ -322,7 +331,7 @@
       box-shadow: 0 4px 20px rgba(0,0,0,.12);
       width: fit-content; max-width: 100%; margin: 0 auto;
     }
-    .map-wrap img { display: block; height: 380px; width: auto; max-width: 340px; }
+    .map-wrap img { display: block; height: 460px; width: auto; }
     .map-wrap svg { display: block; width: 100%; height: 100%; }
 
     /* Right badges */
@@ -332,11 +341,13 @@
     }
     .loc-right .loc-diamond { align-self: stretch; }
     .loc-badge {
-      background: #fff; border-radius: 12px;
-      padding: 16px 20px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(199,165,103,.22);
+      border-radius: 14px;
+      padding: 16px 22px;
+      backdrop-filter: blur(6px);
       display: flex; align-items: center; gap: 14px;
-      width: fit-content; min-width: 200px;
+      width: fit-content; min-width: 190px;
     }
     .loc-badge-icon {
       width: 44px; height: 44px; border-radius: 50%;
@@ -360,31 +371,36 @@
 
     /* Lower 3 cards */
     .loc-lower {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
     }
     .loc-card {
-      background: #fff; border-radius: 12px;
-      padding: 20px 20px 22px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      background: rgba(255,255,255,.52);
+      border: 1px solid rgba(199,165,103,.2);
+      border-radius: 14px;
+      padding: 20px 22px;
+      backdrop-filter: blur(4px);
       display: flex; gap: 14px; align-items: flex-start;
     }
     .loc-card-icon {
       width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(199,165,103,.10);
-      border: 1.5px solid rgba(199,165,103,.4);
+      border: 1.5px solid rgba(199,165,103,.38);
       display: flex; align-items: center; justify-content: center;
-      color: var(--gold); flex-shrink: 0; margin-top: 2px;
+      color: var(--gold); flex-shrink: 0; margin-top: 1px;
     }
     .loc-card-icon svg { width: 16px; height: 16px; }
-    .loc-card-title {
+    .loc-card-line {
       font-family: 'Montserrat', sans-serif;
-      font-size: 12px; font-weight: 700; letter-spacing: .3px;
-      color: var(--dark); margin-bottom: 6px;
+      font-size: 12.5px; line-height: 1.65;
+      color: rgba(0,0,0,.52); margin: 0;
     }
-    .loc-card-text {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px; line-height: 1.65; color: rgba(0,0,0,.48);
+    .loc-card-line strong {
+      font-weight: 700; color: var(--dark);
     }
+
+    /* Palm leaf decor */
+    .loc-palm { position: absolute; pointer-events: none; z-index: 0; }
+    .loc-palm-bl { width: 280px; height: 280px; bottom: -40px; left: -30px; }
+    .loc-palm-tr { width: 200px; height: 200px; top: -20px; right: -20px; }
 
     /* ── Shared form elements (contacts section) ── */
     .field { margin-bottom: 12px; }
@@ -2189,46 +2205,52 @@
 
     <div class="loc-card">
       <div class="loc-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
-          <path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+        <!-- горы -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 20h20L14 7l-4 6-3-4z"/>
         </svg>
       </div>
-      <div>
-        <div class="loc-card-title">Направление Сарпи</div>
-        <div class="loc-card-text">Живописное побережье Чёрного моря, вдали от шума туристических кварталов Батуми</div>
-      </div>
+      <p class="loc-card-line"><strong>Направление Сарпи</strong> — живописное побережье Чёрного моря, вдали от шума туристических кварталов Батуми</p>
     </div>
 
     <div class="loc-card">
       <div class="loc-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
+        <!-- лист/росток -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22V11"/>
+          <path d="M12 11C10 7 6 6 4 8c4 0 7 2 8 3z"/>
+          <path d="M12 11c2-4 6-5 8-3-4 0-7 2-8 3z"/>
+          <path d="M12 16c-2-2-5-2-6 0 3 0 5 1 6 2z"/>
+          <path d="M12 16c2-2 5-2 6 0-3 0-5 1-6 2z"/>
         </svg>
       </div>
-      <div>
-        <div class="loc-card-title">Тихий район</div>
-        <div class="loc-card-text">Нетуристическая спокойная зона с чистым воздухом, идеально для постоянного проживания</div>
-      </div>
+      <p class="loc-card-line"><strong>Тихий район</strong> — нетуристическая спокойная зона с чистым воздухом, идеально для постоянного проживания</p>
     </div>
 
     <div class="loc-card">
       <div class="loc-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="7" width="9" height="14" rx="1"/>
-          <rect x="13" y="3" width="9" height="18" rx="1"/>
-          <line x1="6" y1="7" x2="6" y2="5"/>
-          <line x1="17" y1="3" x2="17" y2="1"/>
+        <!-- город -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="8" width="8" height="13" rx="1"/>
+          <rect x="10" y="4" width="6" height="17" rx="1"/>
+          <rect x="16" y="10" width="6" height="11" rx="1"/>
+          <line x1="5" y1="8" x2="5" y2="6"/>
+          <line x1="13" y1="4" x2="13" y2="2"/>
         </svg>
       </div>
-      <div>
-        <div class="loc-card-title">Близость к Батуми</div>
-        <div class="loc-card-text">~8 км до центра, вся городская инфраструктура в быстрой досягаемости</div>
-      </div>
+      <p class="loc-card-line"><strong>Близость к Батуми</strong> — ~8 км до центра, вся городская инфраструктура в быстрой досягаемости</p>
     </div>
 
   </div><!-- /loc-lower -->
+
+  <!-- Декоративные пальмовые листья -->
+  <svg class="loc-palm loc-palm-bl" aria-hidden="true" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30 210 Q10 160 60 120 Q40 160 80 170 Q50 130 70 80 Q100 110 80 160 Q110 120 120 70 Q140 110 110 170 Q140 130 170 110 Q165 155 130 180 Q160 165 180 150 Q165 185 120 200 Z" fill="#C7A567" opacity="0.12"/>
+    <path d="M20 230 Q50 200 80 210" stroke="#C7A567" stroke-width="1.5" opacity="0.18" stroke-linecap="round"/>
+  </svg>
+  <svg class="loc-palm loc-palm-tr" aria-hidden="true" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M200 10 Q180 50 140 60 Q170 40 160 80 Q140 50 120 70 Q130 40 110 60 Q120 30 150 20 Q130 30 160 10 Z" fill="#C7A567" opacity="0.10"/>
+  </svg>
 
 </section>
 
