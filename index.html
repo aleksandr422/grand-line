@@ -361,6 +361,46 @@
     }
     .privacy svg { flex-shrink: 0; }
 
+    /* ───── ABOUT DEV ───── */
+    .about-dev {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      padding: var(--section-pad) var(--section-h-pad);
+      background: var(--dark2);
+      align-items: center;
+    }
+    .about-dev-img {
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(199,165,103,.22);
+      min-height: 400px;
+    }
+    .about-dev-img img {
+      width: 100%; height: 100%; min-height: 400px;
+      display: block; object-fit: cover;
+    }
+    .about-dev-text { display: flex; flex-direction: column; }
+    .about-dev-desc {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px; line-height: 1.75;
+      color: rgba(255,255,255,.52);
+      margin-bottom: 28px;
+    }
+    .about-concept-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,.28);
+      margin-bottom: 12px;
+    }
+    .about-concept-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .about-concept-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; line-height: 1.5;
+      color: rgba(255,255,255,.58);
+    }
+    .about-concept-item svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+
     /* ───── PLANS ───── */
     .plans-section {
       background: var(--dark);
@@ -1270,6 +1310,7 @@
 
       :root { --section-h-pad: 24px; }
       .plans-grid { grid-template-columns: 1fr; gap: 16px; }
+      .about-dev { grid-template-columns: 1fr; gap: 32px; }
       .plans-top-grid { grid-template-columns: 1fr; gap: 32px; }
       .plans-lower-grid { grid-template-columns: 1fr; gap: 16px; }
       .plans-layout-card { width: 100%; justify-self: unset; }
@@ -1578,6 +1619,57 @@
       <div class="stat-val">40%</div>
       <div class="stat-lbl" data-i18n="t15">В конце стройки</div>
     </div>
+  </div>
+
+</section>
+
+<!-- ══════════════ ABOUT DEV ══════════════ -->
+<section class="about-dev">
+
+  <!-- Левая колонка: фото комплекса -->
+  <div class="about-dev-img">
+    <img src="gallery-exterior.jpg" alt="Рендер комплекса Grand Line, Гонио">
+  </div>
+
+  <!-- Правая колонка: текст -->
+  <div class="about-dev-text">
+    <div class="section-tag">О застройщике</div>
+    <h2 class="section-title">Grand Line</h2>
+    <p class="about-dev-desc">Строительная компания Grand Line специализируется на создании комфортного малоэтажного жилья. Каждый проект — продуманная среда для жизни и выгодная инвестиция, а не просто строительство. На рынке с 2022 года.</p>
+
+    <div class="about-concept-label">Концепция проекта</div>
+    <ul class="about-concept-list">
+      <li class="about-concept-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        Таунхаусы в тихой зелёной зоне
+      </li>
+      <li class="about-concept-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        Максимальная приватность — минимум соседей
+      </li>
+      <li class="about-concept-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        Уютная атмосфера загородного дома
+      </li>
+      <li class="about-concept-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        Развитая инфраструктура рядом
+      </li>
+      <li class="about-concept-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        Продуманные планировки для семьи
+      </li>
+    </ul>
   </div>
 
 </section>
