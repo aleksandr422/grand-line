@@ -620,7 +620,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: start;
+      align-items: stretch;
       margin-bottom: 40px;
     }
 
@@ -690,8 +690,9 @@
       border: 1px solid rgba(199,165,103,.3);
       border-radius: 12px; overflow: hidden;
       background: #0d1b2a;
+      display: flex; flex-direction: column;
     }
-    .plans-layout-card img { width: 100%; display: block; object-fit: contain; }
+    .plans-layout-card img { width: 100%; flex: 1; min-height: 0; display: block; object-fit: cover; }
     .plans-layout-caption {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase;
@@ -719,8 +720,8 @@
 
     /* 4th card — summary */
     .plans-scheme-img {
-      width: 100%; border-radius: 6px; display: block;
-      margin-bottom: 16px;
+      width: 100%; max-height: 200px; border-radius: 6px; display: block;
+      object-fit: contain; margin-bottom: 16px;
       border: 1px solid rgba(199,165,103,.15);
     }
     .plans-areas { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
@@ -1636,8 +1637,42 @@
       <ul class="room-list">
         <li><span class="room-list-name">Крытая терраса</span><span class="room-list-sq">48 м²</span></li>
       </ul>
+      <div class="terrace-sublabel">Возможности террасы</div>
+      <div class="terrace-chips">
+        <span class="terrace-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c0 6-6 8-6 13a6 6 0 0012 0c0-5-6-7-6-13z"/>
+            <path d="M10 17a2 2 0 004 0c0-2-2-3-2-5-1 2-2 3-2 5z"/>
+          </svg>
+          Мангал-зона
+        </span>
+        <span class="terrace-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+            <path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+          </svg>
+          Бассейн
+        </span>
+        <span class="terrace-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="2" x2="8" y2="22"/>
+            <path d="M4 4c0 3 2 6 4 6 2 0 4-3 4-6"/>
+            <path d="M16 2v6a2 2 0 004 0V2"/>
+            <line x1="18" y1="8" x2="18" y2="22"/>
+          </svg>
+          Летняя кухня
+        </span>
+        <span class="terrace-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22V12"/>
+            <path d="M12 12c0 0-5-4-5-9 0 0 5 0 5 9z"/>
+            <path d="M12 12c0 0 5-4 5-9 0 0-5 0-5 9z"/>
+          </svg>
+          Зелёный сад
+        </span>
+      </div>
       <div class="plan-floor-total">Итого: ~48 м²</div>
-      <div class="floor-desc">Панорамный вид на море · Мангал-зона · Бассейн · Летняя кухня</div>
+      <div class="floor-desc">Панорамный вид · Открытое небо · Полная свобода планировки</div>
     </div>
 
     <!-- Карточка: Состав помещений -->
