@@ -290,9 +290,10 @@
 
     /* MAP */
     .map-wrap {
-      position: relative; height: 310px; overflow: hidden;
+      position: relative; height: 420px; overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 2px 14px rgba(0,0,0,.10);
+      background: var(--light-bg);
     }
     .map-wrap svg { display: block; width: 100%; height: 100%; }
 
@@ -612,6 +613,138 @@
 
     .plans-cta-wrap { text-align: center; }
 
+    /* Plans v2 — верхний двухколоночный блок */
+    .plans-section h2.section-title { margin-bottom: 16px; }
+
+    .plans-top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+
+    .plans-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 500; line-height: 1.6;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 24px;
+    }
+
+    /* A/B/C switcher */
+    .plans-abc {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 24px;
+    }
+    .plans-abc-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-right: 4px;
+    }
+    .plans-abc-btn {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1.5px solid rgba(199,165,103,.45);
+      background: transparent; color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px; font-weight: 700;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .22s, border-color .22s;
+    }
+    .plans-abc-btn.active,
+    .plans-abc-btn:hover {
+      background: rgba(199,165,103,.14);
+      border-color: var(--gold);
+    }
+
+    /* 3 icon facts */
+    .plans-facts {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .plans-fact {
+      display: flex; align-items: center; gap: 7px;
+    }
+    .plans-fact svg { width: 15px; height: 15px; color: var(--gold); flex-shrink: 0; }
+    .plans-fact-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,.68);
+    }
+
+    /* Download link */
+    .plans-brochure {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 600; letter-spacing: 1.6px;
+      text-transform: uppercase; color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(199,165,103,.35);
+      padding-bottom: 2px;
+      transition: border-color .22s;
+    }
+    .plans-brochure:hover { border-color: var(--gold); }
+
+    /* Right col — image card */
+    .plans-layout-card {
+      border: 1px solid rgba(199,165,103,.3);
+      border-radius: 12px; overflow: hidden;
+      background: #0d1b2a;
+    }
+    .plans-layout-card img { width: 100%; display: block; object-fit: contain; }
+    .plans-layout-caption {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase;
+      color: rgba(255,255,255,.38); text-align: center;
+      padding: 10px 16px;
+      border-top: 1px solid rgba(199,165,103,.15);
+    }
+
+    /* 2×2 lower grid */
+    .plans-lower-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* Floor total row */
+    .plan-floor-total {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold);
+      border-top: 1px solid rgba(199,165,103,.2);
+      padding-top: 10px; margin-top: 4px;
+    }
+
+    /* 4th card — summary */
+    .plans-scheme-img {
+      width: 100%; border-radius: 6px; display: block;
+      margin-bottom: 16px;
+      border: 1px solid rgba(199,165,103,.15);
+    }
+    .plans-areas { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .plans-area-row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+    .plans-area-row:last-child { border-bottom: none; }
+    .plans-area-name { font-family: 'Montserrat', sans-serif; font-size: 12px; color: rgba(255,255,255,.5); }
+    .plans-area-val { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--gold); }
+    .plans-footnote { font-family: 'Montserrat', sans-serif; font-size: 10px; color: rgba(255,255,255,.25); margin-top: auto; }
+
+    /* CTA bar */
+    .plans-cta-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px;
+      border: 1px solid rgba(199,165,103,.22);
+      border-radius: 12px;
+      padding: 24px 32px;
+      background: #0d1b2a;
+    }
+    .plans-cta-bar-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 1.6vw, 22px); font-weight: 600;
+      color: #fff;
+    }
+
     /* ───── GALLERY ───── */
     .gallery {
       background: var(--dark);
@@ -635,7 +768,7 @@
 
     .gb-bottom {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 260px;
       gap: 12px;
     }
@@ -752,6 +885,92 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px; line-height: 1.72;
       color: rgba(255,255,255,.48);
+    }
+
+    /* ───── INFRASTRUCTURE ───── */
+    .infra-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .infra-card { padding: 0; overflow: hidden; }
+    .infra-img {
+      width: 100%; height: 200px;
+      object-fit: cover; display: block;
+    }
+    .infra-body { padding: 20px 22px 24px; }
+
+    /* ───── PLANS EXTRAS ───── */
+    .project-layout-block {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(199,165,103,.22);
+    }
+    .project-layout-block img {
+      width: 100%; display: block;
+      object-fit: contain;
+    }
+    .project-layout-caption {
+      font-family: 'Montserrat', sans-serif; font-size: 11px;
+      letter-spacing: 1.8px; text-transform: uppercase;
+      color: rgba(255,255,255,.45); text-align: center;
+      padding: 10px 16px;
+      border-top: 1px solid rgba(199,165,103,.18);
+    }
+
+    /* ───── PRICING ───── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .price-unit {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,.3); margin-bottom: 8px;
+    }
+    .pricing-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; line-height: 1.65;
+      color: rgba(255,255,255,.28); text-align: center; margin-top: 22px;
+    }
+
+    /* ───── INVESTMENT ───── */
+    .invest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .invest-list {
+      list-style: none; margin-top: 14px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .invest-list li {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; line-height: 1.6;
+      color: rgba(255,255,255,.6); padding-left: 18px; position: relative;
+    }
+    .invest-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+    .invest-accent {
+      margin-top: 16px; border: 1px solid rgba(199,165,103,.35);
+      border-radius: 12px; padding: 22px 32px;
+      background: rgba(199,165,103,.06);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px; font-weight: 600; line-height: 1.55;
+      color: rgba(255,255,255,.85); text-align: center;
+    }
+
+    /* ───── TRANSPORT ───── */
+    .transport-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .transport-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px; line-height: 1.65;
+      color: rgba(255,255,255,.42); text-align: center; margin-top: 24px;
     }
 
     /* ───── CONTACTS ───── */
@@ -992,8 +1211,15 @@
 
       :root { --section-h-pad: 24px; }
       .plans-grid { grid-template-columns: 1fr; gap: 16px; }
+      .plans-top-grid { grid-template-columns: 1fr; gap: 32px; }
+      .plans-lower-grid { grid-template-columns: 1fr; gap: 16px; }
+      .plans-cta-bar { flex-direction: column; text-align: center; padding: 22px 24px; gap: 16px; }
       .adv-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .adv-card-hero { grid-column: span 1; padding: 28px 22px; }
+      .infra-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .invest-grid  { grid-template-columns: 1fr; }
+      .transport-grid { grid-template-columns: repeat(2, 1fr); }
       .contacts-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 20px 24px; }
       .gb-top { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px; }
@@ -1016,12 +1242,14 @@
       .plans-summary { font-size: 15px; }
       .adv-grid { grid-template-columns: 1fr; }
       .adv-card-hero { grid-column: span 1; }
+      .transport-grid { grid-template-columns: repeat(2, 1fr); }
       footer { flex-direction: column; text-align: center; gap: 8px; padding: 20px; }
       .footer-links { justify-content: center; }
       .gb-top { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
       .gb-hero { grid-row: span 1; }
-      .gb-bottom { grid-template-columns: 1fr; grid-template-rows: repeat(2, 220px); }
+      .gb-bottom { grid-template-columns: 1fr; grid-template-rows: repeat(3, 220px); }
       .location { padding: 40px 20px; }
+      .map-wrap { height: auto; aspect-ratio: 3 / 4; }
       .contacts-form-title { font-size: 24px; line-height: 1.18; }
     }
 
@@ -1183,7 +1411,7 @@
 
       <p class="hero-sub" data-i18n="t7">
         Приватный проект премиальных вилл в Батуми,<br>
-        всего в <span class="gold">250 метрах</span> от моря.
+        всего в <span class="gold">250 метрах</span> от моря · 8 км от Батуми.
       </p>
 
       <div class="features">
@@ -1295,14 +1523,62 @@
 <!-- ══════════════ PLANS ══════════════ -->
 <section class="plans-section" id="planirovki">
 
-  <div class="gallery-header">
-    <div class="section-tag">Планировки</div>
-    <h2 class="section-title">Три этажа<br>для жизни у моря</h2>
-  </div>
+  <!-- ── ВЕРХНИЙ БЛОК: 2 колонки ── -->
+  <div class="plans-top-grid">
 
-  <div class="plans-grid">
+    <!-- Левая колонка: заголовок + ABC + факты + брошюра -->
+    <div class="plans-top-left">
+      <div class="section-tag">Планировки</div>
+      <h2 class="section-title">Три этажа<br>для жизни у моря</h2>
+      <p class="plans-subtitle">16 таунхаусов в трёх зданиях A / B / C. Каждый юнит — отдельный вход, личный двор, крытая терраса с видом на море.</p>
 
-    <!-- ── ЭТАЖ 1 ── -->
+      <!-- A/B/C switcher -->
+      <div class="plans-abc">
+        <span class="plans-abc-label">Здание</span>
+        <button class="plans-abc-btn active" type="button">A</button>
+        <button class="plans-abc-btn" type="button">B</button>
+        <button class="plans-abc-btn" type="button">C</button>
+      </div>
+
+      <!-- Ключевые факты -->
+      <div class="plans-facts">
+        <div class="plans-fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="plans-fact-text">164 м² общая площадь</span>
+        </div>
+        <div class="plans-fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span class="plans-fact-text">3 этажа · 3 спальни</span>
+        </div>
+        <div class="plans-fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span class="plans-fact-text">Сдача — IV квартал 2026</span>
+        </div>
+      </div>
+
+      <a href="#kontakty" class="plans-brochure" onclick="scrollToSection('kontakty'); return false;">
+        Получить брошюру с планировками →
+      </a>
+    </div>
+
+    <!-- Правая колонка: аэро-макет -->
+    <div class="plans-layout-card">
+      <img src="project-layout.jpg" alt="Аэро-макет комплекса Grand Line, здания A/B/C">
+      <div class="plans-layout-caption">Состав комплекса — 16 таунхаусов, здания A / B / C</div>
+    </div>
+
+  </div><!-- /plans-top-grid -->
+
+  <!-- ── НИЖНИЙ БЛОК: 2×2 ── -->
+  <div class="plans-lower-grid">
+
+    <!-- Карточка: 1 Этаж -->
     <div class="floor-card">
       <div class="floor-num">1 Этаж</div>
       <div class="floor-plan-img" onclick="openLightbox('plan1.png')">
@@ -1319,10 +1595,11 @@
         <li><span class="room-list-name">Кухня</span><span class="room-list-sq">8 м²</span></li>
         <li><span class="room-list-name">Ванная</span><span class="room-list-sq">4,2 м²</span></li>
       </ul>
-      <div class="floor-desc">Просторная гостиная с выходом во двор · Кухня-столовая · Санузел</div>
+      <div class="plan-floor-total">Итого: ~38 м²</div>
+      <div class="floor-desc">Гостиная с выходом во двор · Кухня-столовая · Санузел</div>
     </div>
 
-    <!-- ── ЭТАЖ 2 ── -->
+    <!-- Карточка: 2 Этаж -->
     <div class="floor-card">
       <div class="floor-num">2 Этаж</div>
       <div class="floor-plan-img" onclick="openLightbox('plan2.png')">
@@ -1340,10 +1617,11 @@
         <li><span class="room-list-name">Ванная 1</span><span class="room-list-sq">3,5 м²</span></li>
         <li><span class="room-list-name">Ванная 2</span><span class="room-list-sq">3,5 м²</span></li>
       </ul>
-      <div class="floor-desc">2 спальни с панорамными окнами · Гардеробная · Ванная комната</div>
+      <div class="plan-floor-total">Итого: ~35 м²</div>
+      <div class="floor-desc">2 спальни с панорамными окнами · Гардеробная · 2 ванных</div>
     </div>
 
-    <!-- ── ЭТАЖ 3 ── -->
+    <!-- Карточка: 3 Этаж -->
     <div class="floor-card">
       <div class="floor-num">3 Этаж</div>
       <div class="floor-plan-img" onclick="openLightbox('plan3.png')">
@@ -1358,57 +1636,42 @@
       <ul class="room-list">
         <li><span class="room-list-name">Крытая терраса</span><span class="room-list-sq">48 м²</span></li>
       </ul>
-      <div class="terrace-sublabel">Возможности зоны</div>
-      <div class="terrace-chips">
-        <span class="terrace-chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2c0 6-6 8-6 13a6 6 0 0012 0c0-5-6-7-6-13z"/>
-            <path d="M10 17a2 2 0 004 0c0-2-2-3-2-5-1 2-2 3-2 5z"/>
-          </svg>
-          Мангал-зона
-        </span>
-        <span class="terrace-chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
-            <path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
-          </svg>
-          Бассейн
-        </span>
-        <span class="terrace-chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="8" y1="2" x2="8" y2="22"/>
-            <path d="M4 4c0 3 2 6 4 6 2 0 4-3 4-6"/>
-            <path d="M16 2v6a2 2 0 004 0V2"/>
-            <line x1="18" y1="8" x2="18" y2="22"/>
-          </svg>
-          Летняя кухня
-        </span>
-        <span class="terrace-chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22V12"/>
-            <path d="M12 12c0 0-5-4-5-9 0 0 5 0 5 9z"/>
-            <path d="M12 12c0 0 5-4 5-9 0 0-5 0-5 9z"/>
-          </svg>
-          Зелёный сад
-        </span>
-      </div>
-      <div class="floor-desc">Панорамный вид · Открытое небо · Полная свобода планировки</div>
+      <div class="plan-floor-total">Итого: ~48 м²</div>
+      <div class="floor-desc">Панорамный вид на море · Мангал-зона · Бассейн · Летняя кухня</div>
     </div>
 
-  </div><!-- /plans-grid -->
+    <!-- Карточка: Состав помещений -->
+    <div class="floor-card">
+      <div class="floor-num">Состав помещений</div>
+      <img src="rooms-scheme.jpg" alt="Схема помещений таунхауса" class="plans-scheme-img">
+      <ul class="plans-areas">
+        <li class="plans-area-row">
+          <span class="plans-area-name">Жилая площадь</span>
+          <span class="plans-area-val">116 м²</span>
+        </li>
+        <li class="plans-area-row">
+          <span class="plans-area-name">Крытая терраса</span>
+          <span class="plans-area-val">48 м²</span>
+        </li>
+        <li class="plans-area-row">
+          <span class="plans-area-name">Общая площадь</span>
+          <span class="plans-area-val">164 м²</span>
+        </li>
+        <li class="plans-area-row">
+          <span class="plans-area-name">Личный двор</span>
+          <span class="plans-area-val">25 м²</span>
+        </li>
+      </ul>
+      <div class="plans-footnote">* Площади ориентировочны, уточняются в договоре</div>
+    </div>
 
-  <div class="plans-summary">
-    Общая площадь — 164 м²
-    <span>·</span>
-    Личный двор — 25 м²
-    <span>·</span>
-    +35 м² в крайних виллах
-  </div>
-  <p class="plans-corner-note">Крайние виллы имеют расширенный двор — отличный выбор для семей с детьми.</p>
+  </div><!-- /plans-lower-grid -->
 
-  <div class="plans-cta-wrap">
+  <!-- ── CTA-полоса ── -->
+  <div class="plans-cta-bar">
+    <span class="plans-cta-bar-text">Нужна консультация по планировкам?</span>
     <button class="btn-cta" onclick="scrollToSection('kontakty')">
-      Получить все планировки
+      Оставить заявку
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
            stroke-linecap="round" stroke-linejoin="round">
         <line x1="5" y1="12" x2="19" y2="12"/>
@@ -1455,9 +1718,46 @@
         <img src="gallery-1.jpg" alt="Интерьер">
         <div class="gb-caption">Интерьер</div>
       </div>
+      <div class="gb-item" onclick="openLightbox('gallery-exterior.jpg')">
+        <img src="gallery-exterior.jpg" alt="Экстерьер комплекса">
+        <div class="gb-caption">Экстерьер</div>
+      </div>
     </div>
 
   </div>
+
+</section>
+
+<!-- ══════════════ PRICING ══════════════ -->
+<section class="advantages">
+
+  <div class="gallery-header">
+    <div class="section-tag">Стоимость</div>
+    <h2 class="section-title" style="color:#fff">Цены за м²</h2>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="adv-card">
+      <div class="price-unit">м²</div>
+      <div class="adv-big-num">850 $</div>
+      <div class="adv-title">Чёрный каркас</div>
+      <div class="adv-desc">Базовая стадия строительства — фундамент и несущие конструкции.</div>
+    </div>
+    <div class="adv-card">
+      <div class="price-unit">м²</div>
+      <div class="adv-big-num">950 $</div>
+      <div class="adv-title">Белый каркас</div>
+      <div class="adv-desc">Стены, окна, инженерные коммуникации — готово к чистовой отделке.</div>
+    </div>
+    <div class="adv-card">
+      <div class="price-unit">м²</div>
+      <div class="adv-big-num">1 150 $</div>
+      <div class="adv-title">Зелёный — под ключ</div>
+      <div class="adv-desc">Полная отделка: полы, потолки, сантехника, двери — въезжай и живи.</div>
+    </div>
+  </div>
+
+  <p class="pricing-note">Цены актуальны на дату публикации и растут по мере строительства.</p>
 
 </section>
 
@@ -1562,101 +1862,99 @@
 
 </section>
 
+<!-- ══════════════ TRANSPORT ══════════════ -->
+<section class="advantages">
+
+  <div class="gallery-header">
+    <div class="section-tag">Локация</div>
+    <h2 class="section-title" style="color:#fff">Транспортная доступность</h2>
+  </div>
+
+  <div class="transport-grid">
+    <div class="adv-card">
+      <div class="adv-big-num">5 км</div>
+      <div class="adv-title">Аэропорт Батуми</div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-big-num">8 км</div>
+      <div class="adv-title">Центр Батуми</div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-big-num">12 км</div>
+      <div class="adv-title">Сарпи — граница с Турцией</div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-big-num">200 м</div>
+      <div class="adv-title">Выезд на трассу</div>
+    </div>
+  </div>
+
+  <p class="transport-note">Тихая зелёная зона, но вся инфраструктура Батуми — в считанных минутах.</p>
+
+</section>
+
+<!-- ══════════════ INFRASTRUCTURE ══════════════ -->
+<section class="advantages">
+
+  <div class="gallery-header">
+    <div class="section-tag">Инфраструктура</div>
+    <h2 class="section-title">Что рядом</h2>
+  </div>
+
+  <div class="infra-grid">
+
+    <div class="adv-card infra-card">
+      <img class="infra-img" src="infra-shops.jpg" alt="Магазины и рестораны">
+      <div class="infra-body">
+        <div class="adv-num">700 м</div>
+        <div class="adv-title">Магазины и рестораны</div>
+        <div class="adv-desc">Супермаркеты, кафе, грузинская кухня — всё в пешей доступности.</div>
+      </div>
+    </div>
+
+    <div class="adv-card infra-card">
+      <img class="infra-img" src="infra-police.jpg" alt="Безопасность">
+      <div class="infra-body">
+        <div class="adv-num">2 км</div>
+        <div class="adv-title">Безопасность</div>
+        <div class="adv-desc">Отделение полиции в 2 км, школа — в 3 км от комплекса.</div>
+      </div>
+    </div>
+
+    <div class="adv-card infra-card">
+      <img class="infra-img" src="infra-airport.jpg" alt="Аэропорт Батуми">
+      <div class="infra-body">
+        <div class="adv-num">5 км</div>
+        <div class="adv-title">Аэропорт Батуми</div>
+        <div class="adv-desc">Международный аэропорт — 5 км, прямые рейсы в Европу и СНГ.</div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
 <!-- ══════════════ LOCATION ══════════════ -->
 <section class="location" id="location">
 
   <!-- TEXT -->
   <div>
-    <div class="section-tag">Локация, которая решает</div>
+    <div class="section-tag">Локация проекта — Гонио</div>
     <h2 class="section-title">Море рядом,<br>жизнь спокойно</h2>
     <p class="loc-desc">
-      Всего 250 метров — и вы на набережной Гонио. Тихий район, чистое море и быстрый доступ к центру Батуми.
+      Всего 250 метров до набережной Гонио. Тихий нетуристический район — чистый воздух и всего 8 км до центра Батуми.
     </p>
   </div>
 
   <!-- MAP -->
   <div class="map-wrap">
-    <svg viewBox="0 0 500 310" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-
-      <!-- Land -->
-      <rect width="500" height="310" fill="#EDE8E0"/>
-
-      <!-- Sea zone — upper-left, smooth curved coastline -->
-      <path d="M 0,0 L 245,0 C 215,42 178,82 152,118 C 126,154 82,182 38,202 L 0,202 Z"
-            fill="#AECBDC"/>
-
-      <!-- Sea shimmer lines -->
-      <g stroke="#9EC2D8" stroke-width="0.9" opacity="0.55" stroke-linecap="round">
-        <line x1="18"  y1="38"  x2="148" y2="34"/>
-        <line x1="8"   y1="68"  x2="158" y2="62"/>
-        <line x1="4"   y1="98"  x2="148" y2="96"/>
-        <line x1="0"   y1="130" x2="118" y2="128"/>
-        <line x1="0"   y1="160" x2="72"  y2="158"/>
-      </g>
-
-      <!-- Street grid — thin, light-gray, ненавязчивые -->
-      <g stroke="#C2B9AF" stroke-width="1.1">
-        <!-- Horizontals -->
-        <line x1="110" y1="122" x2="500" y2="120"/>
-        <line x1="85"  y1="155" x2="500" y2="154"/>
-        <line x1="32"  y1="205" x2="500" y2="205"/>
-        <line x1="0"   y1="240" x2="500" y2="240"/>
-        <line x1="0"   y1="274" x2="500" y2="274"/>
-        <!-- Verticals -->
-        <line x1="238" y1="0"   x2="238" y2="310"/>
-        <line x1="306" y1="0"   x2="306" y2="310"/>
-        <line x1="374" y1="0"   x2="374" y2="310"/>
-        <line x1="442" y1="0"   x2="442" y2="310"/>
-        <!-- Diagonals — coastal road -->
-        <line x1="152" y1="118" x2="232" y2="310"/>
-        <line x1="245" y1="0"   x2="388" y2="310"/>
-      </g>
-
-      <!-- Чуть жирнее — главные улицы -->
-      <g stroke="#B5AAA0" stroke-width="2">
-        <line x1="32"  y1="205" x2="500" y2="205"/>
-        <line x1="306" y1="0"   x2="306" y2="310"/>
-      </g>
-
-      <!-- Marker: Море и набережная (в море, ближе к берегу) -->
-      <g transform="translate(88, 68)">
-        <circle cx="0" cy="0" r="6"  fill="#C7A567" stroke="#fff" stroke-width="2"/>
-        <circle cx="0" cy="0" r="10" fill="none" stroke="#C7A567" stroke-width="1" opacity="0.4"/>
-        <!-- Bubble -->
-        <rect x="10" y="-18" width="108" height="36" rx="3" fill="white"
-              filter="drop-shadow(0 1px 4px rgba(0,0,0,.18))"/>
-        <text x="64" y="-4" text-anchor="middle"
-              font-family="Montserrat, Arial, sans-serif" font-size="9" fill="#555"
-              data-i18n="t25">Море и набережная</text>
-        <text x="64" y="10" text-anchor="middle"
-              font-family="Montserrat, Arial, sans-serif" font-size="10.5"
-              font-weight="700" fill="#222">
-          250 м
-        </text>
-      </g>
-
-      <!-- Marker: Grand Line Виллы (суша, центр) -->
-      <g transform="translate(310, 175)">
-        <circle cx="0" cy="0" r="6"  fill="#C7A567" stroke="#fff" stroke-width="2"/>
-        <circle cx="0" cy="0" r="10" fill="none" stroke="#C7A567" stroke-width="1" opacity="0.4"/>
-        <!-- Bubble -->
-        <rect x="10" y="-18" width="100" height="36" rx="3" fill="white"
-              filter="drop-shadow(0 1px 4px rgba(0,0,0,.18))"/>
-        <text x="60" y="-4" text-anchor="middle"
-              font-family="Montserrat, Arial, sans-serif" font-size="9" fill="#555">
-          Grand Line
-        </text>
-        <text x="60" y="10" text-anchor="middle"
-              font-family="Montserrat, Arial, sans-serif" font-size="10.5"
-              font-weight="700" fill="#222" data-i18n="t26">Виллы</text>
-      </g>
-
-    </svg>
+    <img src="gonio-map.png" alt="Карта расположения Grand Line в Гонио"
+         style="width:100%;height:100%;object-fit:contain;display:block;">
   </div>
 
   <!-- LOCATION INFO -->
   <div class="loc-info">
-    <div class="section-tag">Локация, которая решает</div>
+    <div class="section-tag">Локация проекта — Гонио</div>
     <div class="loc-info-title">Море рядом,<br>жизнь спокойно</div>
     <ul class="loc-bullets">
       <li class="loc-bullet">
@@ -1667,28 +1965,61 @@
             <path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
           </svg>
         </div>
-        <span class="loc-bullet-text">250 м до моря и набережной</span>
+        <span class="loc-bullet-text">Направление Сарпи — живописное побережье Чёрного моря, вдали от шума туристических кварталов Батуми</span>
       </li>
       <li class="loc-bullet">
         <div class="loc-bullet-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
                stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 2a9 9 0 00-9 9c0 5 9 13 9 13s9-8 9-13a9 9 0 00-9-9z"/>
+            <circle cx="12" cy="11" r="3"/>
           </svg>
         </div>
-        <span class="loc-bullet-text">Тихий закрытый район Гонио</span>
+        <span class="loc-bullet-text">Тихий район — нетуристическая спокойная зона с чистым воздухом, идеально для постоянного проживания</span>
       </li>
       <li class="loc-bullet">
         <div class="loc-bullet-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
                stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
+            <rect x="2" y="7" width="9" height="14" rx="1"/>
+            <rect x="13" y="3" width="9" height="18" rx="1"/>
+            <line x1="6" y1="7" x2="6" y2="5"/>
+            <line x1="17" y1="3" x2="17" y2="1"/>
           </svg>
         </div>
-        <span class="loc-bullet-text">Центр Батуми в 15 минутах</span>
+        <span class="loc-bullet-text">Близость к Батуми — ~8 км до центра, вся городская инфраструктура в быстрой досягаемости</span>
       </li>
     </ul>
+  </div>
+
+</section>
+
+<!-- ══════════════ INVESTMENT ══════════════ -->
+<section class="advantages">
+
+  <div class="gallery-header">
+    <div class="section-tag">Инвестиции</div>
+    <h2 class="section-title" style="color:#fff">Инвестиционный потенциал</h2>
+  </div>
+
+  <div class="invest-grid">
+    <div class="adv-card">
+      <div class="adv-title">Почему цены будут расти</div>
+      <ul class="invest-list">
+        <li>75% земель Батуми–Сарпи уже застроено</li>
+        <li>Свободных участков почти не осталось</li>
+        <li>Рядом строится «Гонио Марина» — создаёт спрос</li>
+        <li>Турпоток в Аджарии ежегодно растёт</li>
+      </ul>
+    </div>
+    <div class="adv-card">
+      <div class="adv-title">«Гонио Марина» — в 200 м</div>
+      <div class="adv-desc" style="margin-top:12px">Мегапроект площадью 260 га на берегу Чёрного моря. Пляж, яхтенная марина, парки, торговые центры, отели — всё это в двух шагах от Grand Line.</div>
+    </div>
+  </div>
+
+  <div class="invest-accent">
+    Срок реализации — 20 месяцев &nbsp;·&nbsp; Покупка сегодня — самая выгодная цена.
   </div>
 
 </section>
@@ -1834,6 +2165,14 @@
 
 <script src="translations.js"></script>
 <script>
+  // A/B/C switcher
+  document.querySelectorAll('.plans-abc-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.plans-abc-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+
   function scrollToSection(id) {
     var el = document.getElementById(id);
     if (!el) return;
@@ -1956,7 +2295,7 @@
     // Стагерируем дочерние элементы сеток
     [
       ['.adv-grid',     0.10],
-      ['.plans-grid',   0.15],
+      ['.plans-lower-grid', 0.15],
       ['.gallery-bento', 0.07],
       ['.stats',        0.10],
     ].forEach(function (pair) {
