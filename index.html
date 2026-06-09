@@ -795,7 +795,6 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; font-weight: 700; letter-spacing: .4px;
       color: var(--gold); margin-bottom: 5px;
-      min-height: 2.4em;
       overflow-wrap: break-word;
     }
     .plans-format-desc {
@@ -1097,7 +1096,6 @@
       font-size: 19px; font-weight: 600; line-height: 1.3;
       color: #fff;
       margin-bottom: 8px;
-      min-height: 2.6em;
       overflow-wrap: break-word;
     }
     .adv-card-hero .adv-title { font-size: 22px; }
@@ -1504,6 +1502,31 @@
     body.lang-ka .stat-val,
     body.lang-ka .room-list-sq,
     body.lang-ka .terrace-sq-val { font-family: 'Cormorant Garamond', serif; }
+
+    /* ── Georgian font-size scale-down for layout parity ── */
+    body.lang-ka .adv-title {
+      font-size: 16px;
+      line-height: 1.25;
+      min-height: 2.5em;
+    }
+    body.lang-ka .adv-card-hero .adv-title {
+      font-size: 19px;
+      min-height: auto;
+    }
+    body.lang-ka .adv-desc {
+      font-size: 11.5px;
+      line-height: 1.65;
+    }
+    body.lang-ka .price-unit { font-size: 10px; }
+    body.lang-ka .pricing-note,
+    body.lang-ka .transport-note { font-size: 11px; line-height: 1.6; }
+    body.lang-ka .plans-format-title {
+      font-size: 10px;
+      min-height: 2.4em;
+    }
+    body.lang-ka .plans-format-desc { font-size: 10px; }
+    body.lang-ka .invest-list li { font-size: 12px; }
+    body.lang-ka .invest-accent { font-size: 13px; }
 
     @media (max-width: 768px) {
       :root { --scroll-offset: 80px; }
