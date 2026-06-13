@@ -19,9 +19,11 @@
       --light-bg:  #F2EFE9;
       --stone:     #6B6B6B;
       --border:    rgba(199,165,103,.25);
-      --muted:     rgba(18,34,55,.5);
-      --text:      #122237;
-      --card-bg:   #ffffff;
+      --muted:          #50545E;
+      --text:           #122237;
+      --text-secondary: #364555;
+      --text-muted:     #50545E;
+      --card-bg:        #ffffff;
       --section-pad:   48px;   /* vertical section padding — 2× = ~96px gap between sections */
       --section-h-pad: 56px;   /* horizontal section padding */
       --header-height: 68px;   /* fixed header height */
@@ -65,7 +67,7 @@
     nav a {
       font-family: 'Montserrat', sans-serif; font-size: 12px;
       letter-spacing: 1.8px; text-transform: uppercase;
-      color: rgba(18,34,55,.7); text-decoration: none;
+      color: var(--text-secondary); text-decoration: none;
       transition: color .25s;
     }
     nav a:hover { color: var(--gold); }
@@ -91,7 +93,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; font-weight: 700; letter-spacing: 1px;
       text-transform: uppercase;
-      color: rgba(18,34,55,.55);
+      color: var(--text-muted);
       background: transparent; border: none; cursor: pointer;
       padding: 7px 13px; line-height: 1;
       transition: background .2s ease, color .2s ease;
@@ -163,7 +165,7 @@
 
     .hero-sub {
       font-family: 'Montserrat', sans-serif; font-size: 15px;
-      color: rgba(18,34,55,.78); line-height: 1.65;
+      color: var(--text-secondary); line-height: 1.65;
       margin-bottom: 34px;
     }
 
@@ -186,7 +188,7 @@
 
     .feat-text {
       font-family: 'Montserrat', sans-serif; font-size: 13px;
-      color: rgba(18,34,55,.82); line-height: 1.55;
+      color: var(--text-secondary); line-height: 1.55;
     }
 
     .btn-cta {
@@ -229,14 +231,14 @@
       font-family: 'Montserrat', sans-serif; font-size: 13px;
     }
     .plan-row:last-of-type { border-bottom: none; }
-    .plan-row-name { color: rgba(18,34,55,.65); flex: 1; min-width: 0; overflow-wrap: break-word; }
+    .plan-row-name { color: var(--text-secondary); flex: 1; min-width: 0; overflow-wrap: break-word; }
     .plan-row-val  { color: var(--gold); font-weight: 600; flex-shrink: 0; }
 
     .plan-note {
       margin-top: 14px; padding-top: 14px;
       border-top: 1px solid rgba(18,34,55,.08);
       font-family: 'Montserrat', sans-serif; font-size: 12px;
-      color: rgba(18,34,55,.5); line-height: 1.65;
+      color: var(--text-muted); line-height: 1.65;
     }
 
     /* ───── STATS BAR ───── */
@@ -416,7 +418,7 @@
 
     .privacy {
       display: flex; align-items: center; gap: 6px;
-      font-family: 'Montserrat', sans-serif; font-size: 11px; color: #6B6B6B;
+      font-family: 'Montserrat', sans-serif; font-size: 11px; color: var(--text-muted);
     }
     .privacy svg { flex-shrink: 0; }
 
@@ -549,7 +551,7 @@
       font-family: 'Montserrat', sans-serif; font-size: 12px;
     }
     .room-list li:last-child { border-bottom: none; }
-    .room-list-name { color: rgba(18,34,55,.6); }
+    .room-list-name { color: var(--text-muted); }
     .room-list-sq {
       font-family: 'Cormorant Garamond', serif;
       font-size: 17px; font-weight: 600; line-height: 1;
@@ -570,7 +572,7 @@
     .terrace-sq-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
-      text-transform: uppercase; color: rgba(18,34,55,.4);
+      text-transform: uppercase; color: var(--text-muted);
       margin-bottom: 8px;
     }
     .terrace-sq-val {
@@ -597,20 +599,20 @@
     .terrace-option-name {
       font-family: 'Montserrat', sans-serif;
       font-size: 9px; font-weight: 600; letter-spacing: 1px;
-      text-transform: uppercase; color: rgba(18,34,55,.5);
+      text-transform: uppercase; color: var(--text-muted);
       text-align: center; line-height: 1.3;
     }
     .terrace-adapt-text {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; line-height: 1.65;
-      color: rgba(18,34,55,.45);
+      color: var(--text-muted);
       margin-top: auto;
     }
 
     .terrace-sublabel {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; font-weight: 600; letter-spacing: 1.8px;
-      text-transform: uppercase; color: rgba(18,34,55,.35);
+      text-transform: uppercase; color: var(--text-muted);
       margin: 14px 0 8px;
     }
 
@@ -626,7 +628,7 @@
       background: rgba(199,165,103,.04);
       font-family: 'Montserrat', sans-serif;
       font-size: 13px; font-weight: 500;
-      color: rgba(18,34,55,.72);
+      color: var(--text-secondary);
       transition: border-color .25s, background .25s;
       cursor: default;
     }
@@ -643,7 +645,7 @@
     .floor-desc {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; line-height: 1.65;
-      color: rgba(18,34,55,.45);
+      color: var(--text-muted);
       margin-top: auto; padding-top: 12px;
       border-top: 1px solid rgba(18,34,55,.07);
     }
@@ -666,7 +668,7 @@
     .plans-corner-note {
       text-align: center;
       font-family: 'Montserrat', sans-serif;
-      font-size: 11.5px; color: rgba(18,34,55,.42);
+      font-size: 11.5px; color: var(--text-muted);
       margin-bottom: 36px;
     }
 
@@ -686,7 +688,7 @@
     .plans-subtitle {
       font-family: 'Montserrat', sans-serif;
       font-size: 13px; font-weight: 500; line-height: 1.6;
-      color: rgba(18,34,55,.55);
+      color: var(--text-muted);
       margin-bottom: 24px;
     }
 
@@ -698,7 +700,7 @@
     .plans-abc-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(18,34,55,.4); margin-right: 4px;
+      color: var(--text-muted); margin-right: 4px;
     }
     .plans-abc-btn {
       width: 34px; height: 34px; border-radius: 50%;
@@ -728,7 +730,7 @@
     .plans-fact-text {
       font-family: 'Montserrat', sans-serif;
       font-size: 12px; font-weight: 600;
-      color: rgba(18,34,55,.7);
+      color: var(--text-secondary);
     }
 
     /* Download link */
@@ -762,7 +764,7 @@
       display: flex; align-items: center; gap: 9px;
       font-family: 'Montserrat', sans-serif;
       font-size: 12px; line-height: 1.4;
-      color: rgba(18,34,55,.62);
+      color: var(--text-secondary);
     }
     .plans-bullet svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; }
 
@@ -773,7 +775,7 @@
     .plans-format-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: rgba(18,34,55,.38);
+      text-transform: uppercase; color: var(--text-muted);
       margin-bottom: 10px;
     }
     .plans-format-grid {
@@ -802,7 +804,7 @@
     .plans-format-desc {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; line-height: 1.55;
-      color: rgba(18,34,55,.52);
+      color: var(--text-muted);
       overflow-wrap: break-word;
     }
 
@@ -818,7 +820,7 @@
     .plans-layout-caption {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase;
-      color: rgba(18,34,55,.5); text-align: center;
+      color: var(--text-muted); text-align: center;
       padding: 10px 16px;
       border-top: 1px solid rgba(199,165,103,.15);
     }
@@ -844,7 +846,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
       text-transform: uppercase; cursor: pointer; border: none;
-      background: transparent; color: rgba(18,34,55,.38);
+      background: transparent; color: var(--text-muted);
       border-right: 1px solid rgba(199,165,103,.15);
       transition: background .22s, color .22s;
     }
@@ -854,7 +856,7 @@
       box-shadow: inset 0 -2px 0 var(--gold);
     }
     .floor-tab-btn:hover:not(.active) {
-      background: rgba(199,165,103,.06); color: rgba(18,34,55,.6);
+      background: rgba(199,165,103,.06); color: var(--text-muted);
     }
 
     /* Floor tab panels */
@@ -914,7 +916,7 @@
       padding: 5px 14px;
       border: 1px solid rgba(191,154,94,.28); border-radius: 20px;
       font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500;
-      color: rgba(18,34,55,.55); background: transparent;
+      color: var(--text-muted); background: transparent;
     }
 
     /* Сводка по площадям */
@@ -940,11 +942,11 @@
     .plans-area-lbl {
       font-family: 'Montserrat', sans-serif;
       font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(18,34,55,.5);
+      color: var(--text-muted);
     }
     .plans-footnote {
       font-family: 'Montserrat', sans-serif; font-size: 10px;
-      color: rgba(18,34,55,.38); text-align: center; margin-bottom: 32px;
+      color: var(--text-muted); text-align: center; margin-bottom: 32px;
     }
 
     /* CTA bar */
@@ -1105,7 +1107,7 @@
     .adv-desc {
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px; line-height: 1.72;
-      color: rgba(18,34,55,.55);
+      color: var(--text-muted);
       overflow-wrap: break-word;
     }
 
@@ -1136,7 +1138,7 @@
     .project-layout-caption {
       font-family: 'Montserrat', sans-serif; font-size: 11px;
       letter-spacing: 1.8px; text-transform: uppercase;
-      color: rgba(18,34,55,.5); text-align: center;
+      color: var(--text-muted); text-align: center;
       padding: 10px 16px;
       border-top: 1px solid rgba(199,165,103,.18);
     }
@@ -1150,12 +1152,12 @@
     .price-unit {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(18,34,55,.45); margin-bottom: 8px;
+      color: var(--text-muted); margin-bottom: 8px;
     }
     .pricing-note {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; line-height: 1.65;
-      color: rgba(18,34,55,.48); text-align: center; margin-top: 22px;
+      color: var(--text-muted); text-align: center; margin-top: 22px;
     }
 
     /* ───── INVESTMENT ───── */
@@ -1171,7 +1173,7 @@
     .invest-list li {
       font-family: 'Montserrat', sans-serif;
       font-size: 13px; line-height: 1.6;
-      color: rgba(18,34,55,.65); padding-left: 18px; position: relative;
+      color: var(--text-secondary); padding-left: 18px; position: relative;
     }
     .invest-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
     .invest-accent {
@@ -1180,7 +1182,7 @@
       background: rgba(199,165,103,.06);
       font-family: 'Montserrat', sans-serif;
       font-size: 14px; font-weight: 600; line-height: 1.55;
-      color: rgba(18,34,55,.85); text-align: center;
+      color: var(--text-secondary); text-align: center;
       overflow-wrap: break-word;
     }
 
@@ -1193,7 +1195,7 @@
     .transport-note {
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px; line-height: 1.65;
-      color: rgba(18,34,55,.5); text-align: center; margin-top: 24px;
+      color: var(--text-muted); text-align: center; margin-top: 24px;
     }
 
     /* ───── CONTACTS ───── */
@@ -1230,7 +1232,7 @@
     .contact-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(18,34,55,.45);
+      color: var(--text-muted);
       margin-bottom: 5px;
     }
 
@@ -1280,7 +1282,7 @@
     .contacts-form-subtitle {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(14px, 1.2vw, 17px); font-weight: 400; line-height: 1.4;
-      color: rgba(18,34,55,.58);
+      color: var(--text-muted);
       margin-bottom: 28px;
     }
 
@@ -1294,7 +1296,7 @@
       color: var(--text); font-size: 16px;
     }
     .contacts-section .field input::placeholder {
-      color: rgba(18,34,55,.38);
+      color: var(--text-muted);
       font-size: 16px;
     }
     .contacts-section .field input:focus {
@@ -1311,7 +1313,7 @@
       transform: scale(1.02);
     }
     .contacts-section .privacy {
-      font-size: 13px; color: rgba(18,34,55,.42);
+      font-size: 13px; color: var(--text-muted);
     }
 
     .contacts-form-col {
@@ -1576,7 +1578,7 @@
         font-family: 'Cormorant Garamond', serif;
         font-size: clamp(26px, 6.5vw, 36px);
         font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-        color: rgba(18,34,55,.85); text-decoration: none;
+        color: var(--text-secondary); text-decoration: none;
         padding: 14px 0; width: 100%; text-align: center;
         border-bottom: 1px solid rgba(199,165,103,.22);
         transition: color .25s ease;
