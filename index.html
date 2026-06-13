@@ -52,8 +52,8 @@
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       height: 68px;
-      background: #ffffff;
-      border-bottom: 1px solid rgba(199,165,103,.2);
+      background: var(--dark);
+      border-bottom: 1px solid rgba(191,154,94,.30);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 56px;
     }
@@ -61,7 +61,7 @@
     .logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px; font-weight: 700; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--gold);
+      text-transform: uppercase; color: var(--gold-on-dark);
       text-decoration: none;
     }
 
@@ -69,16 +69,16 @@
     nav a {
       font-family: 'Montserrat', sans-serif; font-size: 12px;
       letter-spacing: 1.8px; text-transform: uppercase;
-      color: var(--text-secondary); text-decoration: none;
+      color: rgba(242,239,233,.72); text-decoration: none;
       transition: color .25s;
     }
-    nav a:hover { color: var(--gold); }
+    nav a:hover { color: var(--gold-on-dark); }
 
     .btn-outline {
       font-family: 'Montserrat', sans-serif; font-size: 11px;
       letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
-      padding: 11px 26px; border: 1.5px solid var(--gold);
-      background: transparent; color: var(--gold); cursor: pointer;
+      padding: 11px 26px; border: 1.5px solid var(--gold-on-dark);
+      background: transparent; color: var(--gold-on-dark); cursor: pointer;
       transition: background .25s, color .25s;
     }
     .btn-outline:hover { background: var(--gold-btn); color: #000; }
@@ -95,12 +95,12 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; font-weight: 700; letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: rgba(242,239,233,.65);
       background: transparent; border: none; cursor: pointer;
       padding: 7px 13px; line-height: 1;
       transition: background .2s ease, color .2s ease;
     }
-    .lang-btn:hover { background: rgba(199,165,103,.15); color: var(--text); }
+    .lang-btn:hover { background: rgba(199,165,103,.18); color: var(--gold-on-dark); }
     .lang-btn.active { background: var(--gold-btn); color: #0A1320; }
     .lang-sep { display: none; }
 
@@ -1337,7 +1337,7 @@
     /* ───── FOOTER ───── */
     footer {
       background: var(--dark);
-      border-top: 1px solid rgba(199,165,103,.2);
+      border-top: 1px solid rgba(191,154,94,.35);
       padding: 22px 56px;
       display: flex; align-items: center;
       justify-content: space-between;
@@ -1353,17 +1353,17 @@
 
     .footer-copy {
       font-family: 'Montserrat', sans-serif;
-      font-size: 11px; color: rgba(255,255,255,.28);
+      font-size: 11px; color: rgba(242,239,233,.62);
     }
 
     .footer-links { display: flex; gap: 20px; }
 
     .footer-links a {
       font-family: 'Montserrat', sans-serif;
-      font-size: 10.5px; color: rgba(255,255,255,.28);
+      font-size: 10.5px; color: rgba(242,239,233,.62);
       text-decoration: none; transition: color .25s;
     }
-    .footer-links a:hover { color: rgba(199,165,103,.7); }
+    .footer-links a:hover { color: var(--gold-on-dark); }
 
     /* ───── ANIMATIONS ───── */
 
