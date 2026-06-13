@@ -130,18 +130,26 @@
       background-image: url('hero.png');
       background-size: cover;
       background-position: center center;
+      filter: contrast(1.05) saturate(1.1) brightness(0.95);
     }
     /* Dark overlay for text readability */
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(242,239,233,.90) 0%,
-        rgba(242,239,233,.76) 30%,
-        rgba(242,239,233,.38) 55%,
-        rgba(242,239,233,.08) 100%
-      );
+      background:
+        linear-gradient(
+          to right,
+          rgba(242,239,233,.87) 0%,
+          rgba(242,239,233,.72) 28%,
+          rgba(242,239,233,.30) 52%,
+          rgba(242,239,233,.04) 100%
+        ),
+        linear-gradient(
+          to top,
+          rgba(14,18,28,.32) 0%,
+          rgba(14,18,28,.10) 28%,
+          transparent 56%
+        );
     }
 
     .hero-body {
@@ -1680,7 +1688,7 @@
     <!-- LEFT COLUMN -->
     <div class="hero-left">
       <h1 class="hero-title" data-i18n="t6">
-        Своя вилла<br>у моря <span class="gold">в Гонио</span>
+        Своя вилла<br>у моря в Гонио
       </h1>
 
       <p class="hero-sub" data-i18n="t7">
