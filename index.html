@@ -11,8 +11,10 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --gold:      #C7A567;
-      --gold-h:    #d6b87e;
+      --gold:         #7B5D18;  /* text on light bg — WCAG AA ≥4.9:1 on cream */
+      --gold-on-dark: #C7A567;  /* text on dark backgrounds */
+      --gold-btn:     #C7A567;  /* buttons, active states, decorative fills */
+      --gold-h:       #d6b87e;
       --dark:      #0A1320;
       --dark2:     #0f1c2e;
       --dark3:     #0A1320;
@@ -79,7 +81,7 @@
       background: transparent; color: var(--gold); cursor: pointer;
       transition: background .25s, color .25s;
     }
-    .btn-outline:hover { background: var(--gold); color: #000; }
+    .btn-outline:hover { background: var(--gold-btn); color: #000; }
 
     /* ───── LANG SWITCH ───── */
     .lang-switch {
@@ -99,7 +101,7 @@
       transition: background .2s ease, color .2s ease;
     }
     .lang-btn:hover { background: rgba(199,165,103,.15); color: var(--text); }
-    .lang-btn.active { background: var(--gold); color: #0A1320; }
+    .lang-btn.active { background: var(--gold-btn); color: #0A1320; }
     .lang-sep { display: none; }
 
     .hamburger {
@@ -108,7 +110,7 @@
     }
     .hamburger span {
       display: block; width: 24px; height: 2px;
-      background: var(--gold); border-radius: 2px;
+      background: var(--gold-btn); border-radius: 2px;
       transform-origin: center;
       transition: transform .35s ease, opacity .25s ease;
     }
@@ -193,7 +195,7 @@
 
     .btn-cta {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--gold); color: #000; border: none;
+      background: var(--gold-btn); color: #000; border: none;
       padding: 15px 36px;
       font-family: 'Montserrat', sans-serif; font-size: 12px;
       letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
@@ -408,7 +410,7 @@
     .field input::placeholder { color: #6B6B6B; }
 
     .btn-submit {
-      width: 100%; background: var(--gold); color: #000; border: none;
+      width: 100%; background: var(--gold-btn); color: #000; border: none;
       padding: 17px; margin-top: 2px; margin-bottom: 12px;
       font-family: 'Montserrat', sans-serif; font-size: 11.5px;
       letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
@@ -484,7 +486,7 @@
       border: 1px solid rgba(199,165,103,.4);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
+      color: var(--gold-on-dark);
       opacity: 0; transition: opacity .25s;
       pointer-events: none;
     }
@@ -531,7 +533,7 @@
       width: 32px; height: 32px;
       background: rgba(10,19,32,.75);
       border: 1.5px solid rgba(199,165,103,.5);
-      border-radius: 50%; color: var(--gold);
+      border-radius: 50%; color: var(--gold-on-dark);
       font-size: 18px; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: background .2s, border-color .2s;
@@ -661,7 +663,7 @@
     }
 
     .plans-summary span {
-      color: rgba(199,165,103,.5);
+      color: rgba(123,93,24,.4);
       margin: 0 12px;
     }
 
@@ -1269,7 +1271,7 @@
     /* Right column form */
     .form-accent-line {
       width: 40px; height: 2px;
-      background: var(--gold);
+      background: var(--gold-btn);
       margin-bottom: 18px;
     }
 
@@ -1334,7 +1336,7 @@
     .footer-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px; font-weight: 700; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--gold);
+      text-transform: uppercase; color: var(--gold-on-dark);
       text-decoration: none;
     }
 
@@ -1597,7 +1599,7 @@
       .mobile-nav .mobile-cta {
         display: inline-flex; align-items: center; gap: 10px;
         margin-top: clamp(12px, 3vh, 32px); padding: 14px 36px;
-        background: var(--gold); color: #000; border: none;
+        background: var(--gold-btn); color: #000; border: none;
         font-family: 'Montserrat', sans-serif; font-size: 11px;
         letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
         cursor: pointer; transition: background .25s ease, transform .25s ease;
