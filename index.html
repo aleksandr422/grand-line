@@ -1484,6 +1484,20 @@
       .stat-val { font-size: 22px; }
       .plans-summary { font-size: 15px; }
       .floor-tab-img { height: 220px; }
+      /* Floor tabs: scroll when Georgian labels exceed row width */
+      .floor-tabs-nav {
+        overflow-x: auto; overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .floor-tabs-nav::-webkit-scrollbar { display: none; }
+      .floor-tab-btn {
+        flex: 1 0 auto;
+        white-space: nowrap;
+        padding: 11px 12px;
+        font-size: 9.5px;
+        letter-spacing: 1.5px;
+      }
       .adv-grid { grid-template-columns: 1fr; }
       .adv-card-hero { grid-column: span 1; }
       .transport-grid { grid-template-columns: repeat(2, 1fr); }
