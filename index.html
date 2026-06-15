@@ -127,30 +127,24 @@
     /* Hero photo background */
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
-      background-image: url('hero.png');
+      background-image: url('client-hero.png');
       background-size: cover;
       background-position: center center;
-      filter: contrast(1.05) saturate(1.1) brightness(0.95);
     }
-    /* Dark overlay for text readability */
+    /* Light underlay — keeps dark text readable against bright photo */
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
       background:
         linear-gradient(
           to right,
-          rgba(242,239,233,.92) 0%,
-          rgba(242,239,233,.82) 22%,
-          rgba(242,239,233,.64) 42%,
-          rgba(242,239,233,.28) 60%,
-          rgba(242,239,233,.06) 78%,
-          rgba(242,239,233,.01) 100%
-        ),
-        linear-gradient(
-          to top,
-          rgba(14,18,28,.32) 0%,
-          rgba(14,18,28,.10) 28%,
-          transparent 56%
+          rgba(242,239,233,.95) 0%,
+          rgba(242,239,233,.92) 20%,
+          rgba(242,239,233,.82) 36%,
+          rgba(242,239,233,.55) 50%,
+          rgba(242,239,233,.22) 64%,
+          rgba(242,239,233,.05) 80%,
+          rgba(242,239,233,.00) 100%
         );
     }
 
@@ -172,12 +166,13 @@
       font-size: clamp(38px, 5.2vw, 64px);
       font-weight: 700; line-height: 1.05;
       letter-spacing: 2px; text-transform: uppercase;
+      color: #122237;
       margin-bottom: 18px;
     }
 
     .hero-sub {
       font-family: 'Montserrat', sans-serif; font-size: 15px;
-      color: var(--text); line-height: 1.65;
+      color: #122237; line-height: 1.65;
       margin-bottom: 34px;
     }
 
@@ -192,15 +187,15 @@
 
     .feat-icon {
       width: 38px; height: 38px; flex-shrink: 0;
-      border: 1.5px solid rgba(18,34,55,.40); border-radius: 50%;
+      border: 1.5px solid rgba(18,34,55,.80); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: var(--text);
+      color: #122237;
     }
     .feat-icon svg { width: 15px; height: 15px; }
 
     .feat-text {
       font-family: 'Montserrat', sans-serif; font-size: 13px;
-      color: var(--text); line-height: 1.55;
+      color: #122237; line-height: 1.55;
     }
 
     .btn-cta {
@@ -1871,6 +1866,12 @@
           </svg>
           <span data-i18n="t39">Крытая терраса 48 <span data-i18n="t23">м²</span> с видом на море</span>
         </li>
+        <li class="plans-bullet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <span data-i18n="t151">Собственный подземный паркинг</span>
+        </li>
       </ul>
 
       <!-- Формат — таунхаус -->
@@ -2086,8 +2087,8 @@
 
     <!-- Верхний блок: герой (2 ряда) + аэро + двор -->
     <div class="gb-top">
-      <div class="gb-item gb-hero" onclick="openLightbox('gallery-4.jpg')">
-        <img src="gallery-4.jpg" alt="Фасад комплекса Grand Line">
+      <div class="gb-item gb-hero" onclick="openLightbox('gallery4-new.jpeg')">
+        <img src="gallery4-new.jpeg" alt="Фасад комплекса Grand Line">
         <div class="gb-caption" data-i18n="t81">Фасад</div>
       </div>
       <div class="gb-item" onclick="openLightbox('gallery-5.jpg')">
