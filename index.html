@@ -28,8 +28,8 @@
       --card-bg:        #ffffff;
       --section-pad:   48px;   /* vertical section padding — 2× = ~96px gap between sections */
       --section-h-pad: 56px;   /* horizontal section padding */
-      --header-height: 68px;   /* fixed header height */
-      --scroll-offset: 100px;  /* scroll-margin-top: header + 32px breathing room */
+      --header-height: 80px;   /* fixed header height */
+      --scroll-offset: 112px;  /* scroll-margin-top: header + 32px breathing room */
     }
 
     html { scroll-behavior: smooth; }
@@ -51,19 +51,18 @@
     /* ───── HEADER ───── */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      height: 68px;
+      min-height: 80px;
       background: var(--dark);
       border-bottom: 1px solid rgba(191,154,94,.30);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 56px;
+      padding: 8px 56px;
     }
 
     .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 700; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--gold-on-dark);
+      display: flex; align-items: center;
       text-decoration: none;
     }
+    .site-logo { height: 64px; width: auto; display: block; }
 
     nav { display: flex; gap: 36px; }
     nav a {
@@ -121,7 +120,7 @@
       min-height: 100vh;
       min-height: 100svh; /* mobile: excludes dynamic browser bars */
       display: flex; flex-direction: column; justify-content: space-between;
-      padding-top: 68px; overflow: hidden;
+      padding-top: 80px; overflow: hidden;
     }
 
     /* Hero photo background */
@@ -1340,9 +1339,7 @@
     }
 
     .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px; font-weight: 700; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--gold-on-dark);
+      display: flex; align-items: center;
       text-decoration: none;
     }
 
@@ -1521,8 +1518,8 @@
     body.lang-ka h1.hero-title, body.lang-ka h2.section-title,
     body.lang-ka .plan-heading, body.lang-ka .room-sq,
     body.lang-ka .plans-summary, body.lang-ka .adv-title,
-    body.lang-ka .contacts-form-title, body.lang-ka .logo,
-    body.lang-ka .footer-logo, body.lang-ka .mobile-nav a {
+    body.lang-ka .contacts-form-title,
+    body.lang-ka .mobile-nav a {
       font-family: 'Noto Serif Georgian', serif;
     }
     body.lang-ka .stat-val,
@@ -1571,7 +1568,8 @@
     @media (max-width: 768px) {
       :root { --scroll-offset: 80px; }
       /* Header */
-      header { padding: 0 20px; }
+      header { padding: 8px 20px; min-height: 60px; }
+      .site-logo { height: 44px; }
       header > nav, header > .btn-outline { display: none; }
       .hamburger { display: flex; }
       .lang-switch { margin-left: auto; margin-right: 10px; }
@@ -1663,7 +1661,7 @@
 </nav>
 
 <header>
-  <a class="logo" href="#">Grand Line</a>
+  <a class="logo" href="#"><img src="logo-gold.png" alt="Grand Line" class="site-logo"></a>
 
   <nav>
     <a href="#o-proekte" data-i18n="t1">О проекте</a>
@@ -2549,7 +2547,7 @@
 
 <!-- ══════════════ FOOTER ══════════════ -->
 <footer>
-  <a class="footer-logo" href="#">Grand Line</a>
+  <a class="footer-logo" href="#"><img src="logo-gold.png" alt="Grand Line" class="site-logo"></a>
 
   <div class="footer-copy">© 2026 Grand Line. Все права защищены.</div>
 
