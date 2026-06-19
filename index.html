@@ -6,7 +6,7 @@
   <title>Grand Line — Премиальные таунхаусы в Гонио, Батуми</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1521,6 +1521,21 @@
     body.lang-ka .contacts-form-title,
     body.lang-ka .mobile-nav a {
       font-family: 'Noto Serif Georgian', serif;
+    }
+    /* Georgian heading typography: undo uppercase/tracking, use light weight */
+    body.lang-ka h1.hero-title,
+    body.lang-ka h2.section-title {
+      font-weight: 300;
+      text-transform: none;
+      letter-spacing: 0.5px;
+      line-height: 1.25;
+    }
+    body.lang-ka .plan-heading,
+    body.lang-ka .adv-title,
+    body.lang-ka .contacts-form-title,
+    body.lang-ka .plans-summary {
+      font-weight: 400;
+      letter-spacing: 0.3px;
     }
     body.lang-ka .stat-val,
     body.lang-ka .room-list-sq,
